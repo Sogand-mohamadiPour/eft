@@ -21,7 +21,7 @@ function Logo() {
         <span className="text-[#d4b896]"> RESET</span>
       </span>
       <img
-        src="/assets/logo.png"
+        src="/assets/logoCut.png"
         alt="EFT Reset"
         className="h-10 w-10 sm:h-11 sm:w-11 object-contain"
       />
