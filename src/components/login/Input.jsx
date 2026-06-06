@@ -7,10 +7,10 @@ function Input() {
 
 
   return (
-    <div className='mx-auto w-2xs'>
-        <div className="relative w-72 flex justify-center">
-         <FaUser className="icon absolute left-3 top-1/2 mt-2 -translate-y-1/2 text-[#9E9E9E80]" />
-            <input className='text-[#9E9E9E80] h-12 w-80 border border[#9E9E9E80] rounded-md mt-4'
+    <div className='mx-auto w-fit '>
+        <div className="relative w-96  ">
+            <FaUser className="icon absolute left-3 top-1/2 mt-2 -translate-y-1/2 text-[#9E9E9E80]" />
+            <input className='text-[#9E9E9E80] bg-[rgba(42,29,76,0.2)]  h-12 w-full border border-[#9E9E9E80] rounded-md mt-4 text-end pl-10'
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -18,9 +18,9 @@ function Input() {
             />
         </div>
 
-      <div className="relative w-72 flex justify-center">
+      <div className="relative w-96 flex justify-center">
         <FaLock className="icon absolute left-3 top-1/2 mt-2 -translate-y-1/2 text-[#9E9E9E80]" />
-        <input className='text-[#9E9E9E80] h-12 w-80 border border[#9E9E9E80] rounded-md mt-4'
+        <input className='text-[#9E9E9E80] bg-[rgba(42,29,76,0.2)] h-12 w-full border border-[#9E9E9E80] rounded-md mt-4 text-end pl-10'
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
