@@ -34,15 +34,15 @@ function Hero() {
             </div>
             <div className="flex-1 flex justify-center">
               <img
-                src="/assets/logoCut.png"
+                src="/assets/mainPic.png"
                 alt="EFT Reset"
-                className="w-full max-w-[350px] object-contain"
+                className="w-full max-w-[750px] object-contain"
               />
             </div>
           </div>
           <p className="mt-16 text-center text-2xl">
             <span className="text-[#d6c6ff]">چرا</span>{" "}
-            <span className="tracking-[0.3em] bg-linear-to-l from-[#a855f7] to-[#6366f1] bg-clip-text text-transparent">
+            <span className="tracking-[0.3em] bg-linear-to-l from-[#d4b896] to-[#a855f7] bg-clip-text text-transparent">
               EFT RESET
             </span>{" "}
             <span className="text-[#d6c6ff]">متفاوت است؟</span>
