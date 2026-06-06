@@ -29,7 +29,7 @@ function Login() {
             <button className="w-md bg-[redial-geradient(rgba(106,4,202,1),rgba(112,25,202,1),rgba(91,39,178,1),rgba(86,84,131,1))]">curremtColor</button>
         </div>
     </div>
-  )
+  );
 }
 export default Login
 

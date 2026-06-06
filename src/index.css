@@ -1,1 +1,87 @@
 @import "tailwindcss";
+
+/* theme: {
+  extend: {
+    fontFamily: {
+      vazir: ["Vazirmatn", "sans-serif"]
+    }
+
+    ,
+    animation: {
+      orbPulse: "orbPulse 4s ease-in-out infinite",
+        sparklePop: "sparklePop 2.5s ease-in-out infinite",
+        fadeUp: "fadeUp 0.8s ease forwards",
+    }
+
+    ,
+    keyframes: {
+      orbPulse: {
+        "0%,100%": {
+          boxShadow: "0 0 40px rgba(130,60,240,0.5), inset 0 0 50px rgba(80,20,180,0.4), 0 0 100px rgba(100,30,220,0.25)"
+        }
+
+        ,
+        "50%": {
+          boxShadow: "0 0 60px rgba(160,80,255,0.7), inset 0 0 60px rgba(100,40,200,0.5), 0 0 140px rgba(120,50,240,0.4)"
+        }
+
+        ,
+      }
+
+      ,
+      sparklePop: {
+        "0%,100%": {
+          opacity: "0.6", transform: "translateX(-50%) scale(1)"
+        }
+
+        ,
+        "50%": {
+          opacity: "1", transform: "translateX(-50%) scale(1.4)"
+        }
+
+        ,
+      }
+
+      ,
+      fadeUp: {
+        from: {
+          opacity: "0", transform: "translateY(24px)"
+        }
+
+        ,
+        to: {
+          opacity: "1", transform: "translateY(0)"
+        }
+
+        ,
+      }
+
+      ,
+    }
+
+    ,
+    colors: {
+      brand: {
+        deep: "#0a0520",
+          mid: "#110a2e",
+          purple: "#7c3aed",
+          glow: "#9d5ff5",
+          dark: "#1e1040",
+      }
+
+      ,
+    }
+
+    ,
+  }
+
+  ,
+}
+
+, */
+
+body {
+  background-color: #100034;
+  font-family: "Vazirmatn", system-ui, sans-serif;
+  color: #fff;
+}
