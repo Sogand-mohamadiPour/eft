@@ -1,13 +1,9 @@
-import React from 'react'
-
 function Login() {
   return (
-    <div className=''>
-        <div className='w-1/4 bg-[#100034] h-100 '>
-
-     </div>
+    <div className="">
+      <div className="w-1/4 bg-[#243400] h-100 ">test</div>
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;
