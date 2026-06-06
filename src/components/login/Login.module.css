@@ -1,0 +1,7 @@
+.BackGround{
+    background-image: url(assets/background_login.png);
+}
+
+.login{
+    box-shadow: 0px 0px 27px 10px #574C8B;
+}
