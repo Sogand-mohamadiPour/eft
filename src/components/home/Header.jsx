@@ -14,7 +14,7 @@ const NAV_LINKS = [
 function Logo() {
   return (
     <Link to="/" className="flex items-center gap-2.5 shrink-0">
-      <span className="text-lg sm:text-xl font-bold tracking-wide whitespace-nowrap">
+      <span className="text-lg sm:text-2xl font-bold tracking-wide whitespace-nowrap">
         <span className="bg-linear-to-l from-[#a855f7] to-[#6366f1] bg-clip-text text-transparent">
           EFT
         </span>
@@ -36,7 +36,7 @@ function HeaderNavItem({ label, to, onClick, className = "" }) {
       end={to === "/"}
       onClick={onClick}
       className={({ isActive }) =>
-        `relative block px-4 py-3 text-sm font-medium transition-colors hover:text-white ${
+        `relative block px-4 py-3 text-lg font-medium transition-colors hover:text-white ${
           isActive ? "text-white" : "text-[#c4b5fd]/90"
         } ${className}`
       }
@@ -103,7 +103,7 @@ function Header() {
   return (
     <>
       <header className="relative z-40 w-full px-4 py-4 sm:px-6 lg:px-10">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
+        <div className="mx-auto flex max-w-screen-4xl items-center justify-between gap-4">
           <div className="flex items-center gap-1 sm:gap-2">
             <button
               type="button"
