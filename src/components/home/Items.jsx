@@ -50,7 +50,7 @@ function Items() {
             return (
               <div
                 key={index}
-                className="rounded-3xl border border-white/10 bg-[#26164b] p-3 lg:p-6 text-center transition-all hover:-translate-y-1 hover:border-violet-500/40"
+                className="rounded-3xl border border-white/10 bg-[#26164b] p-3 lg:p-6 text-center transition-all hover:-translate-y-1 hover:border-violet-500/40 cursor-pointer"
               >
                 <Icon className="mx-auto mb-3 text-3xl lg:text-5xl text-[#a855f7]" />
 
