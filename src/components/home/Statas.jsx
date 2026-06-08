@@ -31,7 +31,7 @@ const stats = [
 function Stats() {
   return (
     <section className="px-4 py-8">
-      <div className="max-w-screen-2xl mx-auto">
+      <div className="mx-auto">
         <div className="hidden md:flex bg-[#2A1D4C] rounded-[28px]">
           {stats.map((item) => {
             const Icon = item.icon;
@@ -56,7 +56,7 @@ function Stats() {
             );
           })}
         </div>
-        
+
         <div className="grid grid-cols-2 gap-3 md:hidden">
           {stats.map((item) => {
             const Icon = item.icon;
