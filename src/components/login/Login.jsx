@@ -1,9 +1,5 @@
 import styles from "./Login.module.css"
 import Input from "./Input"
-{/* <svg><symbol id="star" viewBox="0 0 20 20" fill="curremtColor" stroke='curremtColor' xmlns="http://www.w3.org/2000/svg">
-<path d="M10 0L7.87868 7.87868L0 10L7.87868 12.1213L10 20L12.1213 12.1213L20 10L12.1213 7.87868L10 0Z" />
-</symbol>
-</svg> */}
 
 function Login() {
   return (

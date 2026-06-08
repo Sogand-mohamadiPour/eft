@@ -5,20 +5,18 @@ function Hero() {
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-6 lg:gap-12">
           <div className="flex-1 text-center lg:text-right">
             <h1 className="text-white font-extrabold leading-tight text-3xl sm:text-4xl lg:text-4xl max-w-xl mx-auto lg:mx-0">
-              <span className="text-[#f7c65a]">کاهش اضطراب</span> و{" "}
-              <span className="text-[#f7c65a]">رهایی</span>
-              <br />
-              از باور های محدود کننده
-              <br />
+              <p>
+                <span className="text-[#f7c65a]">کاهش اضطراب</span> و{" "}
+                <span className="text-[#f7c65a]">رهایی</span>
+              </p>
+              <p> از باور های محدود کننده</p> 
               با تکنیک <span className="text-[#8b3dff]">EFT</span>
             </h1>
 
             <p className="mt-6 text-[#d3c7f5] text-sm sm:text-base leading-relaxed max-w-md mx-auto lg:mx-0">
-              با تمرین های قدم به قدم برای آرامش ذهن،
-              <br />
-              کنترل استرس و افزایش اعتماد به نفس
-              <br />
-              ذهن خود را بازنشانی کنید.
+              <p> با تمرین های قدم به قدم برای آرامش ذهن،</p>
+              <p> کنترل استرس و افزایش اعتماد به نفس</p>
+              <p> ذهن خود را بازنشانی کنید.</p>
             </p>
 
             <div className="mt-8 flex justify-center lg:justify-end gap-3 flex-wrap">
@@ -34,9 +32,9 @@ function Hero() {
           </div>
           <div className="flex-1 flex justify-center">
             <img
-              src="/assets/mainPic.png"
+              src="/assets/orgIcon.png"
               alt="EFT Reset"
-              className="w-full max-w-65 sm:max-w-87.5 lg:max-w-187.5 object-contain"
+              className="w-full max-w-65 sm:max-w-87.5 lg:max-w-100 object-contain"
             />
           </div>
         </div>
