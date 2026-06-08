@@ -41,7 +41,7 @@ const items = [
 
 function Items() {
   return (
-    <section className="bg-[#0b0033] px-4 py-8">
+    <section className="px-4 py-8">
       <div className="mx-auto max-w-screen-4xl">
         <div className="grid grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-4">
           {items.map((item, index) => {
@@ -50,7 +50,7 @@ function Items() {
             return (
               <div
                 key={index}
-                className="rounded-3xl border border-white/10 bg-[#26164b] p-3 lg:p-6 text-center transition-all hover:-translate-y-1 hover:border-violet-500/40"
+                className="rounded-3xl border border-white/10 bg-[#2A1D4C] p-3 lg:p-6 text-center transition-all hover:-translate-y-1 hover:border-violet-500/40"
               >
                 <Icon className="mx-auto mb-3 text-3xl lg:text-5xl text-[#a855f7]" />
 
