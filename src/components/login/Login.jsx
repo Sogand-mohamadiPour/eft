@@ -21,7 +21,7 @@ function Login() {
         </p>
         <span className="text-sm">با ادامه مسیر فقط یک قدم فاصله داری</span>
         <Input />
-        <div className="flex justify-between px-8 mt-5">
+        <div className="flex justify-around px-8 mt-5">
           <div className="flex">
             <p className="text-sm pl-2">من رو به خاطر بسپار</p>
             <input type="checkbox" />
