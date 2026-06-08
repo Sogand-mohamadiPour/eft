@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaUser, FaLock } from "react-icons/fa";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
 
 function Input() {
   const [name, setName] = useState("");

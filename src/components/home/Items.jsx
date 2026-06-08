@@ -42,7 +42,7 @@ const items = [
 function Items() {
   return (
     <section className="bg-[#0b0033] px-4 py-8">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-screen-4xl">
         <div className="grid grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-4">
           {items.map((item, index) => {
             const Icon = item.icon;
