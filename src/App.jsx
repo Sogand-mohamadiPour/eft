@@ -2,6 +2,9 @@ import { Route, Routes } from "react-router-dom";
 import Header from "./components/home/Header";
 import Landing from "./components/home/Landing";
 import Login from "./components/login/Login";
+import Passwordreset from "./components/login/Passwordreset";
+import LoginWithOtp from "./components/login/Loginwithotp";
+import Changepass from "./components/login/Changepass"
 
 function PagePlaceholder({ title }) {
   return (
@@ -28,14 +31,6 @@ function App() {
         element={
           <Layout>
             <Landing />
-          </Layout>
-        }
-      />
-      <Route
-        path="/login"
-        element={
-          <Layout>
-            <Login />
           </Layout>
         }
       />
@@ -79,6 +74,10 @@ function App() {
           </Layout>
         }
       />
+      <Route path="/login" element={<Login />} />
+      <Route path="/Passwordreset" element={<Passwordreset />} />
+      <Route path="/loginwithotp" element={<LoginWithOtp />} />
+      <Route path="Changepass" element={<Changepass />} />
     </Routes>
   );
 }
