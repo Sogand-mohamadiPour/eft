@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-function Otpreset({ mobile, otpRequestCount }) {
+function Otpreset({ otpRequestCount }) {
   const OTP_LENGTH = 4;
 
   const [otp, setOtp] = useState(Array(OTP_LENGTH).fill(""));
@@ -10,6 +10,7 @@ function Otpreset({ mobile, otpRequestCount }) {
 
   useEffect(() => {
     if (otpRequestCount > 0) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setTimeLeft(60);
     }
   }, [otpRequestCount]);
@@ -53,7 +54,6 @@ function Otpreset({ mobile, otpRequestCount }) {
   return (
     <>
       <div>
-        {/* TIMER + BUTTON */}
         <button
           type="button"
           onClick={handleSendCode}
@@ -70,7 +70,6 @@ function Otpreset({ mobile, otpRequestCount }) {
           لطفا <span className="text-[#7D20D5]">کد تایید </span>ارسال شده را در
           کادر زیر وارد کنید
         </p>
-        {/* OTP INPUTS */}
         <div dir="ltr" className="flex justify-center gap-2 mt-5">
           {otp.map((digit, index) => (
             <input

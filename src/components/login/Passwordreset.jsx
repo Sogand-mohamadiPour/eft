@@ -7,6 +7,7 @@ import Inputsample from "./Inputsample.jsx";
 
 function Passwordreset() {
   const [mobile, setMobile] = useState("");
+  // eslint-disable-next-line no-unused-vars
   const [otpRequestCount, setOtpRequestCount] = useState(0);
 
   const navigate = useNavigate();
