@@ -32,14 +32,14 @@ function Stats() {
   return (
     <section className="px-4 py-8">
       <div className="mx-auto">
-        <div className="hidden md:flex bg-[#2A1D4C] rounded-[28px]">
+        <div className="hidden md:grid grid-cols-4 gap-2">
           {stats.map((item) => {
             const Icon = item.icon;
 
             return (
               <div
                 key={item.title}
-                className="flex-1 flex items-center justify-center gap-4 py-5 px-6"
+                className="bg-[#2A1D4C] rounded-[28px] flex items-center justify-center gap-4 py-5 px-6"
               >
                 <Icon className="text-4xl text-[#9d5cff]" />
 
@@ -57,6 +57,7 @@ function Stats() {
           })}
         </div>
 
+
         <div className="grid grid-cols-2 gap-3 md:hidden">
           {stats.map((item) => {
             const Icon = item.icon;
@@ -71,10 +72,7 @@ function Stats() {
                   <h3 className="text-white text-base font-semibold">
                     {item.title}
                   </h3>
-
-                  <p className="text-[#c8b9ea] text-[10px]">
-                    {item.subtitle}
-                  </p>
+                  <p className="text-[#c8b9ea] text-[10px]">{item.subtitle}</p>
                 </div>
               </div>
             );
