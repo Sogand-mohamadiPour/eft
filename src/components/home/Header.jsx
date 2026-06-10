@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { HiBars3, HiGlobeAlt, HiXMark } from "react-icons/hi2";
+import { HiBars3, HiXMark } from "react-icons/hi2";
+import { FiSun, FiMoon } from "react-icons/fi";
 
 const NAV_LINKS = [
   { label: "خانه", to: "/" },
@@ -53,26 +54,18 @@ function HeaderNavItem({ label, to, onClick, className = "" }) {
   );
 }
 
-function LanguageSwitcher({ className = "", value, onChange }) {
-  return (
-    <div
-      className={`flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/90 hover:bg-white/10 ${className}`}
-    >
-      <HiGlobeAlt className="h-4 w-4" aria-hidden="true" />
+function ThemeToggle() {
+  const [dark, setDark] = useState(true);
 
-      <select
-        value={value}
-        onChange={onChange}
-        className="bg-transparent outline-none cursor-pointer"
-      >
-        <option value="fa" className="text-black">
-          فارسی
-        </option>
-        <option value="en" className="text-black">
-          English
-        </option>
-      </select>
-    </div>
+  return (
+    <button
+      type="button"
+      onClick={() => setDark((prev) => !prev)}
+      className="flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-white transition hover:bg-white/10"
+      aria-label="تغییر تم"
+    >
+      {dark ? <FiMoon className="h-5 w-5" /> : <FiSun className="h-5 w-5" />}
+    </button>
   );
 }
 
@@ -124,7 +117,7 @@ function Header() {
           </nav>
 
           <div className="flex items-center gap-2 sm:gap-3">
-            <LanguageSwitcher className="hidden lg:flex" />
+            <ThemeToggle />
             <LoginButton />
           </div>
         </div>
@@ -169,8 +162,8 @@ function Header() {
             ))}
           </nav>
 
-          <div className="border-t border-white/10 p-4">
-            <LanguageSwitcher className="w-full justify-center" />
+          <div className="border-t border-white/10 p-4 flex justify-center">
+            <ThemeToggle />
           </div>
         </aside>
       </div>
