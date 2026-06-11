@@ -57,7 +57,6 @@ function Stats() {
           })}
         </div>
 
-
         <div className="grid grid-cols-2 gap-3 md:hidden">
           {stats.map((item) => {
             const Icon = item.icon;
