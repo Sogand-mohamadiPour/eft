@@ -1,7 +1,37 @@
+<<<<<<< HEAD
+body{
+  padding: 0px;
+}
+
 .BackGround{
     background-image: url(assets/background_login.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+=======
+.BackGround{
+    background-image: url(assets/background_login.png);
+>>>>>>> gitlab/main
 }
 
 .login{
     box-shadow: 0px 0px 27px 10px #574C8B;
+<<<<<<< HEAD
+}
+
+
+:global(input::-ms-reveal) {
+  display: none;
+}
+
+:global(input::-ms-clear) {
+  display: none;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .BackGround {
+    height: 900px;
+  }
+=======
+>>>>>>> gitlab/main
 }
