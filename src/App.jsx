@@ -2,6 +2,14 @@ import { Route, Routes } from "react-router-dom";
 import Header from "./components/home/Header";
 import Landing from "./components/home/Landing";
 import Login from "./components/login/Login";
+<<<<<<< HEAD
+import Passwordreset from "./components/login/Passwordreset";
+import LoginWithOtp from "./components/login/Loginwithotp";
+import Changepass from "./components/login/Changepass"
+import Signup from "./components/login/Signup"
+import Signupwithotp from"./components/login/Signupwithotp"
+=======
+>>>>>>> gitlab/main
 
 function PagePlaceholder({ title }) {
   return (
@@ -32,6 +40,8 @@ function App() {
         }
       />
       <Route
+<<<<<<< HEAD
+=======
         path="/login"
         element={
           <Layout>
@@ -40,6 +50,7 @@ function App() {
         }
       />
       <Route
+>>>>>>> gitlab/main
         path="/content"
         element={
           <Layout>
@@ -79,6 +90,15 @@ function App() {
           </Layout>
         }
       />
+<<<<<<< HEAD
+      <Route path="/login" element={<Login />} />
+      <Route path="/Passwordreset" element={<Passwordreset />} />
+      <Route path="/loginwithotp" element={<LoginWithOtp />} />
+      <Route path="/Changepass" element={<Changepass />} />
+      <Route path="/Signup" element={<Signup />} />
+      <Route path="/Signupwithotp" element={<Signupwithotp />} />
+=======
+>>>>>>> gitlab/main
     </Routes>
   );
 }

@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+<<<<<<< HEAD
+import { HiBars3, HiXMark } from "react-icons/hi2";
+import { FiSun, FiMoon } from "react-icons/fi";
+=======
 import { HiBars3, HiGlobeAlt, HiXMark } from "react-icons/hi2";
+>>>>>>> gitlab/main
 
 const NAV_LINKS = [
   { label: "خانه", to: "/" },
@@ -53,6 +58,20 @@ function HeaderNavItem({ label, to, onClick, className = "" }) {
   );
 }
 
+<<<<<<< HEAD
+function ThemeToggle({ className = "" }) {
+  const [dark, setDark] = useState(true);
+
+  return (
+    <button
+      type="button"
+      onClick={() => setDark((prev) => !prev)}
+      className={`flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-white transition hover:bg-white/10 cursor-pointer ${className}`}
+      aria-label="تغییر تم"
+    >
+      {dark ? <FiMoon className="h-5 w-5" /> : <FiSun className="h-5 w-5" />}
+    </button>
+=======
 function LanguageSwitcher({ className = "", value, onChange }) {
   return (
     <div
@@ -73,6 +92,7 @@ function LanguageSwitcher({ className = "", value, onChange }) {
         </option>
       </select>
     </div>
+>>>>>>> gitlab/main
   );
 }
 
@@ -124,7 +144,11 @@ function Header() {
           </nav>
 
           <div className="flex items-center gap-2 sm:gap-3">
+<<<<<<< HEAD
+            <ThemeToggle className="hidden sm:flex sm:items-center sm:justify-center" />
+=======
             <LanguageSwitcher className="hidden lg:flex" />
+>>>>>>> gitlab/main
             <LoginButton />
           </div>
         </div>
@@ -155,7 +179,11 @@ function Header() {
             <span className="text-sm font-semibold text-white/80">منو</span>
             <button
               type="button"
+<<<<<<< HEAD
+              className="rounded-lg p-2 text-white/80 transition-colors hover:bg-white/10 hover:text-white cursor-pointer"
+=======
               className="rounded-lg p-2 text-white/80 transition-colors hover:bg-white/10 hover:text-white"
+>>>>>>> gitlab/main
               onClick={closeMenu}
               aria-label="بستن منو"
             >
@@ -169,8 +197,13 @@ function Header() {
             ))}
           </nav>
 
+<<<<<<< HEAD
+          <div className="border-t border-white/10 p-4 flex justify-center">
+            <ThemeToggle />
+=======
           <div className="border-t border-white/10 p-4">
             <LanguageSwitcher className="w-full justify-center" />
+>>>>>>> gitlab/main
           </div>
         </aside>
       </div>
