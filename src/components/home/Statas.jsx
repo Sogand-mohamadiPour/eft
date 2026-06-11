@@ -8,7 +8,7 @@ import {
 const stats = [
   {
     icon: HiOutlineUsers,
-    title: "+20 هزار",
+    title: "+2 هزار",
     subtitle: "کاربر در مسیر تحول",
   },
   {
