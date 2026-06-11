@@ -1,6 +1,6 @@
-import { useState } from "react";
 import styles from "./Login.module.css";
 import { FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
+import { useState } from "react";
 
 function Changepass() {
   const [password, setPassword] = useState("");
@@ -8,15 +8,13 @@ function Changepass() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
 
-  // قوانین رمز
+
   const hasLetter = /[a-zA-Z]/.test(password);
   const hasNumber = /[0-9]/.test(password);
   const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(password);
   const hasLength = password.length >= 8;
 
-  // شرط جدید: یکی بودن رمزها
   const isMatch = confirmPassword.length > 0 && password === confirmPassword;
-  // وضعیت کلی
   const isValid = hasLetter && hasNumber && hasSymbol && hasLength && isMatch;
 
   return (

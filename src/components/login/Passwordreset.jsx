@@ -27,6 +27,7 @@ function Passwordreset() {
           icon={<FaMobileAlt />}
           placeholder="شماره موبایل"
           name="mobile"
+          maxLength={11}
           value={mobile}
           onChange={(e) => setMobile(e.target.value)}
         />

@@ -5,6 +5,8 @@ import Login from "./components/login/Login";
 import Passwordreset from "./components/login/Passwordreset";
 import LoginWithOtp from "./components/login/Loginwithotp";
 import Changepass from "./components/login/Changepass"
+import Signup from "./components/login/Signup"
+import Signupwithotp from"./components/login/Signupwithotp"
 
 function PagePlaceholder({ title }) {
   return (
@@ -77,7 +79,9 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/Passwordreset" element={<Passwordreset />} />
       <Route path="/loginwithotp" element={<LoginWithOtp />} />
-      <Route path="Changepass" element={<Changepass />} />
+      <Route path="/Changepass" element={<Changepass />} />
+      <Route path="/Signup" element={<Signup />} />
+      <Route path="/Signupwithotp" element={<Signupwithotp />} />
     </Routes>
   );
 }

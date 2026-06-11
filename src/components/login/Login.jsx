@@ -25,6 +25,7 @@ function Login() {
           icon={<FaMobileAlt />}
           placeholder="شماره موبایل"
           name="mobile"
+          maxLength={11}
           value={mobile}
           onChange={(e) => setMobile(e.target.value)}
         />
@@ -41,7 +42,8 @@ function Login() {
             رمز عبور را فراموش کردید؟
           </p>
         </div>
-        <button type="submit"
+        <button
+          type="submit"
           className="bg-[linear-gradient(90deg,rgba(106,4,202,1)_0%,rgba(112,25,202,1)_33%,rgba(91,39,178,1)_66%,rgba(86,84,131,1))]
                 text[rgba(255,255,255,1)]
                 rounded-3xl
@@ -71,7 +73,13 @@ function Login() {
         </button>
         <p className="text-[#FFFFFF] text-sm mt-4 pb-6">
           حساب کاربری ندارید؟{" "}
-          <span className="text-[#F3B961] cursor-pointer">ثبت نام کنید</span>
+          <span
+            className="text-[#F3B961] cursor-pointer"
+            onClick={() => navigate("/Signup")}
+            style={{ cursor: "pointer", color: "white" }}
+          >
+            ثبت نام کنید
+          </span>
         </p>
       </div>
     </div>
