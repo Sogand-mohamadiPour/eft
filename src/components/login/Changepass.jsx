@@ -8,7 +8,6 @@ function Changepass() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
 
-
   const hasLetter = /[a-zA-Z]/.test(password);
   const hasNumber = /[0-9]/.test(password);
   const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(password);
@@ -49,7 +48,6 @@ function Changepass() {
           </button>
         </div>
 
-        {/* CONFIRM PASSWORD */}
         <div className="relative mx-auto w-full sm:w-full lg:w-[80%] group">
           <FaLock className="icon absolute right-14 md:right-17 lg:right-4 top-1/2 mt-2 -translate-y-1/2 text-[#9E9E9E80] group-focus-within:text-white" />
           <input
@@ -69,7 +67,6 @@ function Changepass() {
           </button>
         </div>
 
-        {/* CHECKBOX RULES */}
         <div className="mx-auto w-[80%] p-5">
           <label className="flex items-center gap-2">
             <input
@@ -122,7 +119,6 @@ function Changepass() {
           </label>
         </div>
 
-        {/* BUTTON */}
         <button
           disabled={!isValid}
           className={`text-white    rounded-3xl

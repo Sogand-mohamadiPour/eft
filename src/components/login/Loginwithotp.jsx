@@ -6,6 +6,7 @@ import Inputsample from "./Inputsample.jsx";
 
 function Loginwithotp() {
   const [mobile, setMobile] = useState("");
+  // eslint-disable-next-line no-unused-vars
   const [otpRequestCount, setOtpRequestCount] = useState(0);
   return (
     <div
@@ -24,8 +25,7 @@ function Loginwithotp() {
           value={mobile}
           onChange={(e) => setMobile(e.target.value)}
         />
-        <Otpreset mobile={mobile}
-        otpRequestCount={otpRequestCount} />
+        <Otpreset otpRequestCount={otpRequestCount} />
 
         <button
           type="button"
