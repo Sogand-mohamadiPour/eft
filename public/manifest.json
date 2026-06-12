@@ -1,0 +1,22 @@
+{
+  "name": "EFT Reset",
+  "short_name": "EFT Reset",
+  "description": "EFT Reset Platform",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0f172a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/assets/logoCut.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/logoCut.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
