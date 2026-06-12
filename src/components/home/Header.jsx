@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-<<<<<<< HEAD
 import { HiBars3, HiXMark } from "react-icons/hi2";
 import { FiSun, FiMoon } from "react-icons/fi";
-=======
-import { HiBars3, HiGlobeAlt, HiXMark } from "react-icons/hi2";
->>>>>>> gitlab/main
 
 const NAV_LINKS = [
   { label: "خانه", to: "/" },
@@ -58,7 +54,6 @@ function HeaderNavItem({ label, to, onClick, className = "" }) {
   );
 }
 
-<<<<<<< HEAD
 function ThemeToggle({ className = "" }) {
   const [dark, setDark] = useState(true);
 
@@ -71,28 +66,6 @@ function ThemeToggle({ className = "" }) {
     >
       {dark ? <FiMoon className="h-5 w-5" /> : <FiSun className="h-5 w-5" />}
     </button>
-=======
-function LanguageSwitcher({ className = "", value, onChange }) {
-  return (
-    <div
-      className={`flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/90 hover:bg-white/10 ${className}`}
-    >
-      <HiGlobeAlt className="h-4 w-4" aria-hidden="true" />
-
-      <select
-        value={value}
-        onChange={onChange}
-        className="bg-transparent outline-none cursor-pointer"
-      >
-        <option value="fa" className="text-black">
-          فارسی
-        </option>
-        <option value="en" className="text-black">
-          English
-        </option>
-      </select>
-    </div>
->>>>>>> gitlab/main
   );
 }
 
@@ -132,23 +105,19 @@ function Header() {
               aria-expanded={menuOpen}
               aria-label="باز کردن منو"
             >
-              <HiBars3 className="h-6 w-6" aria-hidden="true" />
+              <HiBars3 className="h-6 w-6" />
             </button>
             <Logo />
           </div>
 
-          <nav className="hidden lg:flex items-center gap-1" aria-label="اصلی">
+          <nav className="hidden lg:flex items-center gap-1">
             {NAV_LINKS.map((link) => (
               <HeaderNavItem key={link.to} {...link} className="px-3 py-2" />
             ))}
           </nav>
 
           <div className="flex items-center gap-2 sm:gap-3">
-<<<<<<< HEAD
             <ThemeToggle className="hidden sm:flex sm:items-center sm:justify-center" />
-=======
-            <LanguageSwitcher className="hidden lg:flex" />
->>>>>>> gitlab/main
             <LoginButton />
           </div>
         </div>
@@ -160,14 +129,11 @@ function Header() {
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"
         }`}
-        aria-hidden={!menuOpen}
       >
         <button
           type="button"
           className="absolute inset-0 bg-[#100034]/50 backdrop-blur-md"
           onClick={closeMenu}
-          aria-label="بستن منو"
-          tabIndex={menuOpen ? 0 : -1}
         />
 
         <aside
@@ -179,31 +145,21 @@ function Header() {
             <span className="text-sm font-semibold text-white/80">منو</span>
             <button
               type="button"
-<<<<<<< HEAD
               className="rounded-lg p-2 text-white/80 transition-colors hover:bg-white/10 hover:text-white cursor-pointer"
-=======
-              className="rounded-lg p-2 text-white/80 transition-colors hover:bg-white/10 hover:text-white"
->>>>>>> gitlab/main
               onClick={closeMenu}
-              aria-label="بستن منو"
             >
-              <HiXMark className="h-6 w-6" aria-hidden="true" />
+              <HiXMark className="h-6 w-6" />
             </button>
           </div>
 
-          <nav className="flex flex-1 flex-col py-2" aria-label="موبایل">
+          <nav className="flex flex-1 flex-col py-2">
             {NAV_LINKS.map((link) => (
               <HeaderNavItem key={link.to} {...link} onClick={closeMenu} />
             ))}
           </nav>
 
-<<<<<<< HEAD
           <div className="border-t border-white/10 p-4 flex justify-center">
             <ThemeToggle />
-=======
-          <div className="border-t border-white/10 p-4">
-            <LanguageSwitcher className="w-full justify-center" />
->>>>>>> gitlab/main
           </div>
         </aside>
       </div>

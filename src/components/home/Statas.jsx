@@ -8,11 +8,7 @@ import {
 const stats = [
   {
     icon: HiOutlineUsers,
-<<<<<<< HEAD
     title: "+2 هزار",
-=======
-    title: "+20 هزار",
->>>>>>> gitlab/main
     subtitle: "کاربر در مسیر تحول",
   },
   {
@@ -36,22 +32,14 @@ function Stats() {
   return (
     <section className="px-4 py-8">
       <div className="mx-auto">
-<<<<<<< HEAD
         <div className="hidden md:grid grid-cols-4 gap-2">
-=======
-        <div className="hidden md:flex bg-[#2A1D4C] rounded-[28px]">
->>>>>>> gitlab/main
           {stats.map((item) => {
             const Icon = item.icon;
 
             return (
               <div
                 key={item.title}
-<<<<<<< HEAD
                 className="bg-[#2A1D4C] rounded-[28px] flex items-center justify-center gap-4 py-5 px-6"
-=======
-                className="flex-1 flex items-center justify-center gap-4 py-5 px-6"
->>>>>>> gitlab/main
               >
                 <Icon className="text-4xl text-[#9d5cff]" />
 
@@ -69,10 +57,6 @@ function Stats() {
           })}
         </div>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> gitlab/main
         <div className="grid grid-cols-2 gap-3 md:hidden">
           {stats.map((item) => {
             const Icon = item.icon;
@@ -87,14 +71,10 @@ function Stats() {
                   <h3 className="text-white text-base font-semibold">
                     {item.title}
                   </h3>
-<<<<<<< HEAD
-                  <p className="text-[#c8b9ea] text-[10px]">{item.subtitle}</p>
-=======
 
                   <p className="text-[#c8b9ea] text-[10px]">
                     {item.subtitle}
                   </p>
->>>>>>> gitlab/main
                 </div>
               </div>
             );
@@ -105,8 +85,4 @@ function Stats() {
   );
 }
 
-<<<<<<< HEAD
 export default Stats;
-=======
-export default Stats;
->>>>>>> gitlab/main
