@@ -11,4 +11,14 @@ export default defineConfig({
     tailwindcss(),
     babel({ presets: [reactCompilerPreset()] })
   ],
+
+   server: {
+    proxy: {
+      "/users": {
+        target:   'http://192.168.100.103:8000/users/user-count/',
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
 })

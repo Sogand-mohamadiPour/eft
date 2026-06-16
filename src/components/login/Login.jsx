@@ -3,11 +3,10 @@ import { useNavigate } from "react-router-dom";
 import Inputsample from "./Inputsample.jsx";
 import Input from "./Input.jsx";
 import { FaMobileAlt } from "react-icons/fa";
-import { useState } from "react";
+// import { useState } from "react";
 
 function Login() {
   const navigate = useNavigate();
-  const [mobile, setMobile] = useState("");
   return (
     <div
       dir="rtl"
@@ -16,8 +15,8 @@ function Login() {
       <div
         className={`${styles.login} w-full sm:w-[80%] md:w-[70%] lg:w-[40%] bg-[#100034] h-max rounded-3xl text-center`}
       >
-        <img className="w-1/3 mx-auto" src="assets/logo_login.png" alt="logo" />
-        <p className="text-3xl mt-2">
+        <img className="w-1/4 mx-auto mt-3" src="assets/logo_login.png" alt="logo" />
+        <p className="text-3xl mt-5">
           سلام، <span className="text-[#F3B961]">خوش برگشتی!</span>
         </p>
         <span className="text-sm">با ادامه مسیر فقط یک قدم فاصله داری</span>
@@ -26,8 +25,6 @@ function Login() {
           placeholder="شماره موبایل"
           name="mobile"
           maxLength={11}
-          value={mobile}
-          onChange={(e) => setMobile(e.target.value)}
         />
         <Input />
         <div className="flex justify-around mt-5">
@@ -76,7 +73,6 @@ function Login() {
           <span
             className="text-[#F3B961] cursor-pointer"
             onClick={() => navigate("/Signup")}
-            style={{ cursor: "pointer", color: "white" }}
           >
             ثبت نام کنید
           </span>

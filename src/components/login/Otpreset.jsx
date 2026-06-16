@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 function Otpreset({ otpRequestCount }) {
-  const OTP_LENGTH = 4;
+  const OTP_LENGTH = 5;
 
   const [otp, setOtp] = useState(Array(OTP_LENGTH).fill(""));
   const [timeLeft, setTimeLeft] = useState(0);

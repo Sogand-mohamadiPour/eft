@@ -10,9 +10,9 @@ function Signupwithotp() {
       className={`${styles.BackGround} h-screen lg:h-full px-2 py-12 w-full`}
     >
       <div
-        className={`${styles.login} mx-auto pt-8 w-full sm:w-[80%] md:w-[70%] lg:w-[40%] bg-[#100034] h-155 rounded-3xl text-center`}
+        className={`${styles.login} mx-auto pt-8 w-full sm:w-[80%] md:w-[70%] lg:w-[40%] bg-[#100034] h-150 rounded-3xl text-center`}
       >
-        <img className="w-1/3 mx-auto" src="assets/logo_login.png" alt="logo" />
+        <img className="w-1/4 mx-auto mt-3 mb-7" src="assets/logo_login.png" alt="logo" />
         <Otpreset otpRequestCount={otpRequestCount} />
         <button
           type="button"

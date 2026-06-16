@@ -19,8 +19,8 @@ function Passwordreset() {
       <div
         className={`${styles.login} w-full sm:w-[80%] md:w-[70%] lg:w-[35%] mx-auto bg-[#100034] h-165 rounded-3xl text-center`}
       >
-        <img className="w-1/3 mx-auto" src="assets/logo_login.png" alt="logo" />
-        <p className="text-xl  mt-2 mb-8">
+        <img className="w-1/4 mx-auto mt-3" src="assets/logo_login.png" alt="logo" />
+        <p className="text-xl  mt-5 mb-8">
           بازیابی <span className="text-[#7D20D5]">رمز عبور</span>
         </p>
         <Inputsample

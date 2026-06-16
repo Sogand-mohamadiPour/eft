@@ -1,20 +1,20 @@
 import styles from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
 import {
+  FaUser,
   FaEnvelope,
   FaMobileAlt,
   FaLock,
   FaEye,
   FaEyeSlash,
+  FaCheck,
 } from "react-icons/fa";
+import { BsCircleFill } from "react-icons/bs";
 import { useState } from "react";
 import Inputsample from "./Inputsample";
 
 function Signup() {
   const navigate = useNavigate();
-  const [mobile, setMobile] = useState("");
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -53,24 +53,21 @@ function Signup() {
       <div
         className={`${styles.login} w-full sm:w-[80%] md:w-[70%] lg:w-[35%] mx-auto bg-[#100034] h-max rounded-3xl text-center`}
       >
-        <img className="w-1/3 mx-auto" src="assets/logo_login.png" alt="logo" />
+        <img className="w-1/4 mx-auto mt-3 mb-3" src="assets/logo_login.png" alt="logo" />
         <p className="text-xl text-[#7D20D5]">
           حساب کاربری <span className="text-white">خود را ایجاد کنید</span>
         </p>
         <Inputsample
-          icon={<FaEnvelope />}
+          icon={<FaUser />}
           placeholder="نام و نام خانوادگی"
           type="text"
           name="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
         />
         <Inputsample
           icon={<FaEnvelope />}
           placeholder="ایمیل"
           type="email"
           name="email"
-          value={email}
           onChange={handleChange}
         />
         {error && <p style={{ color: "red" }}>{error}</p>}
@@ -79,18 +76,15 @@ function Signup() {
           placeholder="شماره موبایل"
           name="mobile"
           maxLength={11}
-          value={mobile}
-          onChange={(e) => setMobile(e.target.value)}
         />
         <form action="#">
           <div className="relative mx-auto w-full sm:w-full lg:w-[80%] group">
             <FaLock className="icon absolute right-14 md:right-17 lg:right-4 top-1/2 mt-2 -translate-y-1/2 text-[#9E9E9E80] group-focus-within:text-white" />
             <input
               type={showPassword ? "text" : "password"}
-              value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="رمز عبور"
-              className="text-[#9E9E9E80] focus:text-white hover:border-white bg-[rgba(42,29,76,0.2)] h-12 w-[80%] lg:w-full border border-[#9E9E9E80] rounded-2xl mt-4 text-start pr-12"
+              className="text-[#9E9E9E80] focus:text-white hover:border-white bg-[rgba(42,29,76,0.2)] h-12 w-[80%] lg:w-full border border-[#9E9E9E80] rounded-2xl mt-4 text-start pl-12 pr-12"
             />
 
             <button
@@ -102,7 +96,6 @@ function Signup() {
             </button>
           </div>
 
-
           <div className="relative mx-auto w-full sm:w-full lg:w-[80%] group">
             <FaLock className="icon absolute right-14 md:right-17 lg:right-4 top-1/2 mt-2 -translate-y-1/2 text-[#9E9E9E80] group-focus-within:text-white" />
             <input
@@ -110,7 +103,7 @@ function Signup() {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               placeholder="تکرار رمز عبور"
-              className="text-[#9E9E9E80] focus:text-white hover:border-white bg-[rgba(42,29,76,0.2)] h-12 w-[80%] lg:w-full border border-[#9E9E9E80] rounded-2xl mt-4 text-start pr-12"
+              className="text-[#9E9E9E80] focus:text-white hover:border-white bg-[rgba(42,29,76,0.2)] h-12 w-[80%] lg:w-full border border-[#9E9E9E80] rounded-2xl mt-4 text-start pl-12 pr-12"
             />
 
             <button
@@ -122,59 +115,55 @@ function Signup() {
             </button>
           </div>
 
-          <div className="mx-auto w-[80%] p-5">
-            <label className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                className="w-5 h-5 borde accent-green-600"
-                checked={hasLetter}
-                readOnly
-              />
-              ترکیبی از حروف
-            </label>
+          <ul className="mx-auto w-[80%] p-5 space-y-3 text-right">
+            <li className="flex items-center gap-2">
+              {hasLetter ? (
+                <FaCheck className="text-[12px]" />
+              ) : (
+                <BsCircleFill className="text-[8px]" />
+              )}
+              <span>شامل حروف</span>
+            </li>
 
-            <label className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                className="w-5 h-5 accent-green-600"
-                checked={hasNumber}
-                readOnly
-              />
-              شامل اعداد
-            </label>
+            <li className="flex items-center gap-2">
+              {hasNumber ? (
+                <FaCheck className="text-[12px]" />
+              ) : (
+                <BsCircleFill className="text-[8px]" />
+              )}
+              <span>شامل اعداد</span>
+            </li>
 
-            <label className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                className="w-5 h-5 accent-green-600"
-                checked={hasSymbol}
-                readOnly
-              />
-              شامل علامت های ویژه
-            </label>
+            <li className="flex items-center gap-2">
+              {hasSymbol ? (
+                <FaCheck className="text-[12px]" />
+              ) : (
+                <BsCircleFill className="text-[8px]" />
+              )}
+              <span>شامل علامت‌های ویژه</span>
+            </li>
 
-            <label className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                className="w-5 h-5 accent-green-600"
-                checked={hasLength}
-                readOnly
-              />
-              حداقل 8 کاراکتر
-            </label>
+            <li className="flex items-center gap-2">
+              {hasLength ? (
+                <FaCheck className="text-[12px]" />
+              ) : (
+                <BsCircleFill className="text-[8px]" />
+              )}
+              <span>حداقل ۸ کاراکتر</span>
+            </li>
 
-            <label className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                className="w-5 h-5 accent-green-600"
-                checked={isMatch}
-                readOnly
-              />
-              یکسان بودن رمزها
-            </label>
-          </div>
+            <li className="flex items-center gap-2">
+              {isMatch ? (
+                <FaCheck className="text-[12px]" />
+              ) : (
+                <BsCircleFill className="text-[8px]" />
+              )}
+              <span>یکسان بودن رمزها</span>
+            </li>
+          </ul>
 
-          <button onClick={() => navigate("/Signupwithotp")}
+          <button
+            onClick={() => navigate("/Signupwithotp")}
             disabled={!isValid}
             className={`text-white    rounded-3xl
                        cursor-pointer
