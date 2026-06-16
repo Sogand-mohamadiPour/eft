@@ -4,9 +4,9 @@ import Landing from "./components/home/Landing";
 import Login from "./components/login/Login";
 import Passwordreset from "./components/login/Passwordreset";
 import LoginWithOtp from "./components/login/Loginwithotp";
-import Changepass from "./components/login/Changepass"
-import Signup from "./components/login/Signup"
-import Signupwithotp from"./components/login/Signupwithotp"
+import Changepass from "./components/login/Changepass";
+import Signup from "./components/login/Signup";
+import Signupwithotp from "./components/login/Signupwithotp";
 
 function PagePlaceholder({ title }) {
   return (
@@ -36,6 +36,9 @@ function App() {
           </Layout>
         }
       />
+
+      <Route path="/login" element={<Login />} />
+
       <Route
         path="/content"
         element={
@@ -44,6 +47,7 @@ function App() {
           </Layout>
         }
       />
+
       <Route
         path="/user-results"
         element={
@@ -52,6 +56,7 @@ function App() {
           </Layout>
         }
       />
+
       <Route
         path="/eft-sessions"
         element={
@@ -60,6 +65,7 @@ function App() {
           </Layout>
         }
       />
+
       <Route
         path="/blog"
         element={
@@ -68,6 +74,7 @@ function App() {
           </Layout>
         }
       />
+
       <Route
         path="/about"
         element={
@@ -76,7 +83,6 @@ function App() {
           </Layout>
         }
       />
-      <Route path="/login" element={<Login />} />
       <Route path="/Passwordreset" element={<Passwordreset />} />
       <Route path="/loginwithotp" element={<LoginWithOtp />} />
       <Route path="/Changepass" element={<Changepass />} />

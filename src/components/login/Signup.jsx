@@ -15,6 +15,9 @@ import Inputsample from "./Inputsample";
 
 function Signup() {
   const navigate = useNavigate();
+  const [mobile, setMobile] = useState("");
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -45,6 +48,42 @@ function Signup() {
   const isMatch = confirmPassword.length > 0 && password === confirmPassword;
   const isValid = hasLetter && hasNumber && hasSymbol && hasLength && isMatch;
 
+  const handleSignup = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(
+        "https://eftreset.com/users/api/auth/register/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: username,
+            email,
+            phone: mobile,
+            password,
+            password_confirm: confirmPassword,
+          }),
+        },
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        console.log(data);
+        throw new Error("Registration failed");
+      }
+
+      console.log("Success:", data);
+
+      navigate("/Signupwithotp");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div
       dir="rtl"
@@ -58,16 +97,19 @@ function Signup() {
           حساب کاربری <span className="text-white">خود را ایجاد کنید</span>
         </p>
         <Inputsample
-          icon={<FaUser />}
+          icon={<FaEnvelope />}
           placeholder="نام و نام خانوادگی"
           type="text"
           name="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         />
         <Inputsample
           icon={<FaEnvelope />}
           placeholder="ایمیل"
           type="email"
           name="email"
+          value={email}
           onChange={handleChange}
         />
         {error && <p style={{ color: "red" }}>{error}</p>}
@@ -76,15 +118,18 @@ function Signup() {
           placeholder="شماره موبایل"
           name="mobile"
           maxLength={11}
+          value={mobile}
+          onChange={(e) => setMobile(e.target.value)}
         />
         <form action="#">
           <div className="relative mx-auto w-full sm:w-full lg:w-[80%] group">
             <FaLock className="icon absolute right-14 md:right-17 lg:right-4 top-1/2 mt-2 -translate-y-1/2 text-[#9E9E9E80] group-focus-within:text-white" />
             <input
               type={showPassword ? "text" : "password"}
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="رمز عبور"
-              className="text-[#9E9E9E80] focus:text-white hover:border-white bg-[rgba(42,29,76,0.2)] h-12 w-[80%] lg:w-full border border-[#9E9E9E80] rounded-2xl mt-4 text-start pl-12 pr-12"
+              className="text-[#9E9E9E80] focus:text-white hover:border-white bg-[rgba(42,29,76,0.2)] h-12 w-[80%] lg:w-full border border-[#9E9E9E80] rounded-2xl mt-4 text-start pr-12"
             />
 
             <button

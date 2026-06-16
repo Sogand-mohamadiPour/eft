@@ -105,12 +105,12 @@ function Header() {
               aria-expanded={menuOpen}
               aria-label="باز کردن منو"
             >
-              <HiBars3 className="h-6 w-6" aria-hidden="true" />
+              <HiBars3 className="h-6 w-6" />
             </button>
             <Logo />
           </div>
 
-          <nav className="hidden lg:flex items-center gap-1" aria-label="اصلی">
+          <nav className="hidden lg:flex items-center gap-1">
             {NAV_LINKS.map((link) => (
               <HeaderNavItem key={link.to} {...link} className="px-3 py-2" />
             ))}
@@ -129,14 +129,11 @@ function Header() {
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"
         }`}
-        aria-hidden={!menuOpen}
       >
         <button
           type="button"
           className="absolute inset-0 bg-[#100034]/50 backdrop-blur-md"
           onClick={closeMenu}
-          aria-label="بستن منو"
-          tabIndex={menuOpen ? 0 : -1}
         />
 
         <aside
@@ -150,13 +147,12 @@ function Header() {
               type="button"
               className="rounded-lg p-2 text-white/80 transition-colors hover:bg-white/10 hover:text-white cursor-pointer"
               onClick={closeMenu}
-              aria-label="بستن منو"
             >
-              <HiXMark className="h-6 w-6" aria-hidden="true" />
+              <HiXMark className="h-6 w-6" />
             </button>
           </div>
 
-          <nav className="flex flex-1 flex-col py-2" aria-label="موبایل">
+          <nav className="flex flex-1 flex-col py-2">
             {NAV_LINKS.map((link) => (
               <HeaderNavItem key={link.to} {...link} onClick={closeMenu} />
             ))}
