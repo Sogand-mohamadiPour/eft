@@ -5,6 +5,7 @@ import { useState } from "react";
 import Inputsample from "./Inputsample.jsx";
 
 function Loginwithotp() {
+  const [mobile, setMobile] = useState("");
   const [otpRequestCount, setOtpRequestCount] = useState(0);
   return (
     <div

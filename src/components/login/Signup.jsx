@@ -97,7 +97,7 @@ function Signup() {
           حساب کاربری <span className="text-white">خود را ایجاد کنید</span>
         </p>
         <Inputsample
-          icon={<FaEnvelope />}
+          icon={<FaUser />}
           placeholder="نام و نام خانوادگی"
           type="text"
           name="username"
@@ -129,7 +129,7 @@ function Signup() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="رمز عبور"
-              className="text-[#9E9E9E80] focus:text-white hover:border-white bg-[rgba(42,29,76,0.2)] h-12 w-[80%] lg:w-full border border-[#9E9E9E80] rounded-2xl mt-4 text-start pr-12"
+              className="text-[#9E9E9E80] focus:text-white hover:border-white bg-[rgba(42,29,76,0.2)] h-12 w-[80%] lg:w-full border border-[#9E9E9E80] rounded-2xl mt-4 text-start pl-12 pr-12"
             />
 
             <button
