@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
-function Otpreset({ otpRequestCount }) {
-  const OTP_LENGTH = 4;
+function Otpreset({ otpRequestCount, otp, setOtp }) {
+  const OTP_LENGTH = 5;
 
-  const [otp, setOtp] = useState(Array(OTP_LENGTH).fill(""));
+  const otpArray = otp;
   const [timeLeft, setTimeLeft] = useState(0);
   const [isFirstSend, setIsFirstSend] = useState(true);
   const inputsRef = useRef([]);
@@ -25,7 +25,6 @@ function Otpreset({ otpRequestCount }) {
   }, [timeLeft]);
 
   const handleSendCode = async () => {
-
     setTimeLeft(60);
     setIsFirstSend(false);
   };
@@ -37,6 +36,7 @@ function Otpreset({ otpRequestCount }) {
 
     const newOtp = [...otp];
     newOtp[index] = digit;
+
     setOtp(newOtp);
 
     if (digit && index < OTP_LENGTH - 1) {
@@ -44,8 +44,7 @@ function Otpreset({ otpRequestCount }) {
     }
 
     if (newOtp.every((item) => item !== "")) {
-      const code = newOtp.join("");
-      console.log("OTP:", code);
+      console.log("OTP:", newOtp.join(""));
     }
   };
 
@@ -69,7 +68,7 @@ function Otpreset({ otpRequestCount }) {
           کادر زیر وارد کنید
         </p>
         <div dir="ltr" className="flex justify-center gap-2 mt-5">
-          {otp.map((digit, index) => (
+          {otpArray.map((digit, index) => (
             <input
               key={index}
               ref={(el) => (inputsRef.current[index] = el)}
@@ -79,8 +78,6 @@ function Otpreset({ otpRequestCount }) {
             />
           ))}
         </div>
-
-        
       </div>
     </>
   );
