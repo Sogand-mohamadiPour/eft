@@ -45,6 +45,42 @@ function Signup() {
   const isMatch = confirmPassword.length > 0 && password === confirmPassword;
   const isValid = hasLetter && hasNumber && hasSymbol && hasLength && isMatch;
 
+  const handleSignup = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(
+        "https://eftreset.com/users/api/auth/register/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: username,
+            email,
+            phone: mobile,
+            password,
+            password_confirm: confirmPassword,
+          }),
+        },
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        console.log(data);
+        throw new Error("Registration failed");
+      }
+
+      console.log("Success:", data);
+
+      navigate("/Signupwithotp");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div
       dir="rtl"
@@ -101,7 +137,6 @@ function Signup() {
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </button>
           </div>
-
 
           <div className="relative mx-auto w-full sm:w-full lg:w-[80%] group">
             <FaLock className="icon absolute right-14 md:right-17 lg:right-4 top-1/2 mt-2 -translate-y-1/2 text-[#9E9E9E80] group-focus-within:text-white" />
@@ -174,7 +209,8 @@ function Signup() {
             </label>
           </div>
 
-          <button onClick={() => navigate("/Signupwithotp")}
+          <button
+            onClick={handleSignup}
             disabled={!isValid}
             className={`text-white    rounded-3xl
                        cursor-pointer

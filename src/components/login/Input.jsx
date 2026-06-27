@@ -1,7 +1,7 @@
 import { FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 
-function Input() {
+function Input({ password, setPassword }) {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -14,6 +14,8 @@ function Input() {
           type={showPassword ? "text" : "password"}
           name="password"
           placeholder="رمز عبور"
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
         />
 
         <button
