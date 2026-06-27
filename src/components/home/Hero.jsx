@@ -3,7 +3,7 @@ function Hero() {
     <section className="bg-[#0b0033] flex items-center justify-center px-4 lg:px-6 overflow-hidden pt-4 lg:pt-0">
       <div className="w-full max-w-screen-4xl mx-auto">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-6 lg:gap-12">
-          <div className="flex-1 text-center ">
+          <div className="flex-1  text-center">
             <h1 className="text-white font-extrabold leading-tight text-3xl sm:text-4xl lg:text-4xl max-w-xl mx-auto lg:mx-20">
               <p>
                 <span className="text-[#f7c65a]">کاهش اضطراب</span> و{" "}
