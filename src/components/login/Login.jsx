@@ -8,7 +8,76 @@ import { useState } from "react";
 function Login() {
   const navigate = useNavigate();
   const [mobile, setMobile] = useState("");
+  const [error, setError] = useState("");
+  const [password, setPassword] = useState("");
 
+  // const handleLogin = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       "https://eftreset.com/users/api/auth/login/",
+  //       // "http://10.193.204.21:8000/users/api/auth/login/",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({
+  //           phone: "string",
+  //           password: "string",
+  //         }),
+  //       },
+  //     );
+
+  //     const data = await response.json();
+
+  //     if (!response.ok) {
+  //       throw new Error(data.message || "Login failed");
+  //     }
+
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
+  const handleLogin = async () => {
+    setError("");
+
+    try {
+      const response = await fetch(
+        "https://eftreset.com/users/api/auth/login/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            phone: mobile,
+            password: password,
+          }),
+        },
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        const errorMessage =
+          data?.message ||
+          data?.phone?.[0] ||
+          data?.password?.[0] ||
+          "Login failed";
+
+        setError(errorMessage);
+        return;
+      }
+
+      console.log("SUCCESS:", data);
+      navigate("/dashboard");
+    } catch (err) {
+      setError("Network error. Please try again.");
+      console.error(err);
+    }
+  };
   return (
     <div
       dir="rtl"
@@ -23,20 +92,19 @@ function Login() {
           سلام، <span className="text-[#F3B961]">خوش برگشتی!</span>
         </p>
 
-        <span className="text-sm">
-          با ادامه مسیر فقط یک قدم فاصله داری
-        </span>
+        <span className="text-sm">با ادامه مسیر فقط یک قدم فاصله داری</span>
 
         <Inputsample
           icon={<FaMobileAlt />}
           placeholder="شماره موبایل"
-          name="mobile"
+          name="phone"
           maxLength={11}
           value={mobile}
           onChange={(e) => setMobile(e.target.value)}
         />
 
-        <Input />
+        <Input password={password} setPassword={setPassword} />
+        {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
 
         <div className="flex justify-around mt-5">
           <div className="flex">
@@ -53,6 +121,7 @@ function Login() {
         </div>
 
         <button
+          onClick={handleLogin}
           type="submit"
           className="bg-[linear-gradient(90deg,rgba(106,4,202,1)_0%,rgba(112,25,202,1)_33%,rgba(91,39,178,1)_66%,rgba(86,84,131,1))]
           text[rgba(255,255,255,1)]
