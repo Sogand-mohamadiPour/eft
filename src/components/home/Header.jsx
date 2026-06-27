@@ -12,15 +12,20 @@ const NAV_LINKS = [
   { label: "درباره ما", to: "/about" },
 ];
 
-function Logo() {
+function Logo({ mobileIconOnly = false }) {
   return (
     <Link to="/" className="flex items-center gap-2.5 shrink-0">
-      <span className="text-lg sm:text-2xl font-bold tracking-wide whitespace-nowrap">
+      <span
+        className={`text-lg sm:text-2xl font-bold tracking-wide whitespace-nowrap ${
+          mobileIconOnly ? "hidden lg:block" : ""
+        }`}
+      >
         <span className="bg-linear-to-l from-[#a855f7] to-[#6366f1] bg-clip-text text-transparent">
           EFT
         </span>
         <span className="text-[#d4b896]"> RESET</span>
       </span>
+
       <img
         src="/assets/logoCut.png"
         alt="EFT Reset"
@@ -107,7 +112,7 @@ function Header() {
             >
               <HiBars3 className="h-6 w-6" />
             </button>
-            <Logo />
+            <Logo mobileIconOnly />
           </div>
 
           <nav className="hidden lg:flex items-center gap-1">
@@ -142,7 +147,8 @@ function Header() {
           }`}
         >
           <div className="flex items-center justify-between border-b border-white/10 px-4 py-4">
-            <span className="text-sm font-semibold text-white/80">منو</span>
+            <Logo />
+
             <button
               type="button"
               className="rounded-lg p-2 text-white/80 transition-colors hover:bg-white/10 hover:text-white cursor-pointer"
