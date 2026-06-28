@@ -8,14 +8,14 @@ function Hero() {
             <img
               src="/assets/heropic.jpg"
               alt="EFT Hero"
-              className="w-full h-72 object-cover"
+              className="w-full h-72 object-cover object-[0%_center]" 
             />
           </div>
 
           <div className="mt-6 text-center">
             <h1 className="text-white font-extrabold leading-tight text-3xl">
               <p>
-                <span className="text-[#f7c65a]">کاهش اضطراب</span> و{" "}
+                <span className="text-[#f7c65a]">کاهش اضطراب</span> و
                 <span className="text-[#f7c65a]">رهایی</span>
               </p>
 
