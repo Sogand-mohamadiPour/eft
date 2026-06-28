@@ -1,4 +1,4 @@
-function Inputsample({ icon, placeholder, name, value, onChange }) {
+function Inputsample({ icon, placeholder, name, value, onChange, maxLength }) {
   return (
     <form action="#">
       <div className="relative mx-auto w-full sm:w-full lg:w-[80%] group">
@@ -13,6 +13,7 @@ function Inputsample({ icon, placeholder, name, value, onChange }) {
           name={name}
           value={value}
           onChange={onChange}
+          maxLength={maxLength}
         />
       </div>
     </form>
