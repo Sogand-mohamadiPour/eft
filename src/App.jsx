@@ -83,7 +83,6 @@ function App() {
           </Layout>
         }
       />
-
       <Route path="/Passwordreset" element={<Passwordreset />} />
       <Route path="/loginwithotp" element={<LoginWithOtp />} />
       <Route path="/Changepass" element={<Changepass />} />

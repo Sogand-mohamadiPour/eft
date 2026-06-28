@@ -86,9 +86,8 @@ function Login() {
       <div
         className={`${styles.login} w-full sm:w-[80%] md:w-[70%] lg:w-[40%] bg-[#100034] h-max rounded-3xl text-center`}
       >
-        <img className="w-1/3 mx-auto" src="assets/logo_login.png" alt="logo" />
-
-        <p className="text-3xl mt-2">
+        <img className="w-1/4 mx-auto mt-3" src="assets/logo_login.png" alt="logo" />
+        <p className="text-3xl mt-5">
           سلام، <span className="text-[#F3B961]">خوش برگشتی!</span>
         </p>
 
