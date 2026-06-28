@@ -15,7 +15,8 @@ export default defineConfig({
 
       includeAssets: [
         'assets/*.png',
-        'assets/*.svg'
+        'assets/*.svg',
+        'assets/*.jpg',
       ],
 
       manifest: {

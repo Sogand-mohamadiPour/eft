@@ -7,6 +7,21 @@ function Otpreset({ otpRequestCount }) {
   const [timeLeft, setTimeLeft] = useState(0);
   const [isFirstSend, setIsFirstSend] = useState(true);
   const inputsRef = useRef([]);
+  const handleKeyDown = (e, index) => {
+  if (e.key === "Backspace") {
+    if (otp[index]) {
+      const newOtp = [...otp];
+      newOtp[index] = "";
+      setOtp(newOtp);
+    } else if (index > 0) {
+      inputsRef.current[index - 1]?.focus();
+
+      const newOtp = [...otp];
+      newOtp[index - 1] = "";
+      setOtp(newOtp);
+    }
+  }
+};
 
   useEffect(() => {
     if (otpRequestCount > 0) {
@@ -75,6 +90,7 @@ function Otpreset({ otpRequestCount }) {
               ref={(el) => (inputsRef.current[index] = el)}
               value={digit}
               onChange={(e) => handleChange(e.target.value, index)}
+              onKeyDown={(e) => handleKeyDown(e, index)}
               className="h-14 w-14 text-center border rounded-2xl mt-5"
             />
           ))}
