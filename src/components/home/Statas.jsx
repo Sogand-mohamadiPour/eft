@@ -57,16 +57,16 @@ function Stats() {
             return (
               <div
                 key={item.title}
-                className="bg-[#2A1D4C] rounded-[28px] flex items-center justify-center gap-4 py-5 px-6"
+                className="bg-(--bgStatas) rounded-[28px] flex items-center justify-center gap-4 py-5 px-6"
               >
                 <Icon className="text-4xl text-[#9d5cff]" />
 
                 <div className="text-right">
-                  <h3 className="text-white text-xl lg:text-2xl font-semibold">
+                  <h3 className="text-(--text) text-xl lg:text-2xl font-semibold">
                     {item.title}
                   </h3>
 
-                  <p className="text-[#c8b9ea] text-xs lg:text-sm mt-1">
+                  <p className="text-(--text-secondary) text-xs lg:text-sm mt-1">
                     {item.subtitle}
                   </p>
                 </div>
@@ -82,14 +82,14 @@ function Stats() {
             return (
               <div
                 key={item.title}
-                className="bg-[#2b1d55] rounded-3xl px-3 py-5 flex items-center gap-3"
+                className="bg-(--bgStatas) rounded-3xl px-3 py-5 flex items-center gap-3"
               >
                 <Icon className="text-3xl text-[#9d5cff]" />
                 <div className="min-w-0 text-right">
-                  <h3 className="text-white text-base font-semibold">
+                  <h3 className="text-(--text) text-base font-semibold">
                     {item.title}
                   </h3>
-                  <p className="text-[#c8b9ea] text-[10px]">{item.subtitle}</p>
+                  <p className="text-(--text-secondary) text-[10px]">{item.subtitle}</p>
                 </div>
               </div>
             );

@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <div className="px-2">
-      <div className="w-full h-fit flex flex-wrap bg-[rgb(42,29,76)] mt-10 rounded-t-3xl">
+      <div className="w-full h-fit bg-(--bgFooter) flex flex-wrap mt-10 rounded-t-3xl">
         <div className="w-full lg:w-1/2 py-5 px-5 lg:px-20 ">
           <img src="/assets/footerLogo.png" alt="footer_logo" />
           <p className="mt-16 text-justify text-lg">
@@ -33,7 +33,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="bg-[rgb(65,50,106)] h-fit w-full flex justify-center text-justify text-md p-5 ">
+      <div className="bg-(--bgCopywrite) h-fit w-full flex justify-center text-justify text-md p-5 ">
         <p className="">تمامی حقوق مادی و معنوی این سایت برای انجمن EFT RESET محفوظ می باشد._طراحی سایت دیجیتال مارکتینگ فرادید</p>
       </div>
     </div>

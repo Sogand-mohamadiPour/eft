@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 function Otpreset({ otpRequestCount, otp, setOtp }) {
   const OTP_LENGTH = 5;
 
-  const otpArray = otp;
+  const otpArray = otp?.length ? otp : Array(OTP_LENGTH).fill("");
   const [timeLeft, setTimeLeft] = useState(0);
   const [isFirstSend, setIsFirstSend] = useState(true);
   const inputsRef = useRef([]);
@@ -83,7 +83,7 @@ function Otpreset({ otpRequestCount, otp, setOtp }) {
           کادر زیر وارد کنید
         </p>
         <div dir="ltr" className="flex justify-center gap-2 mt-5">
-          {otpArray.map((digit, index) => (
+          {otpArray?.map((digit, index) => (
             <input
               key={index}
               ref={(el) => (inputsRef.current[index] = el)}

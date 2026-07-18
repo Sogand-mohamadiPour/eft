@@ -3,7 +3,7 @@ body{
 }
 
 .BackGround{
-    background-image: url(assets/background_login.png);
+    background-image: var(--login-bg);
     background-size: cover;
     background-repeat: no-repeat;
     height: auto;
