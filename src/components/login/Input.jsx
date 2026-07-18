@@ -5,7 +5,7 @@ function Input({ password, setPassword }) {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <form action="#">
+    <div>
       <div className="relative mx-auto w-full sm:w-full lg:w-[80%] group">
         <FaLock className="icon absolute right-14 md:right-17 lg:right-4 top-1/2 mt-2 -translate-y-1/2 text-[#9E9E9E80] group-focus-within:text-white" />
 
@@ -26,7 +26,7 @@ function Input({ password, setPassword }) {
           {showPassword ? <FaEyeSlash /> : <FaEye />}
         </button>
       </div>
-    </form>
+    </div>
   );
 }
 
