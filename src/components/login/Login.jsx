@@ -11,35 +11,6 @@ function Login() {
   const [error, setError] = useState("");
   const [password, setPassword] = useState("");
 
-  // const handleLogin = async () => {
-  //   try {
-  //     const response = await fetch(
-  //       "https://eftreset.com/users/api/auth/login/",
-  //       // "http://10.193.204.21:8000/users/api/auth/login/",
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({
-  //           phone: "string",
-  //           password: "string",
-  //         }),
-  //       },
-  //     );
-
-  //     const data = await response.json();
-
-  //     if (!response.ok) {
-  //       throw new Error(data.message || "Login failed");
-  //     }
-
-  //     console.log(data);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
   const handleLogin = async () => {
     setError("");
 

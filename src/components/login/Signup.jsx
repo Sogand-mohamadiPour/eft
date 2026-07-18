@@ -53,7 +53,7 @@ function Signup() {
 
     try {
       const response = await fetch(
-        "https://eftreset.com/users/api/auth/register/",
+        "http://10.15.91.21:8000/users/api/auth/register/",
         {
           method: "POST",
           headers: {
@@ -76,9 +76,17 @@ function Signup() {
         throw new Error("Registration failed");
       }
 
-      console.log("Success:", data);
+      console.log("REGISTER RESPONSE:", data);
 
-      navigate("/Signupwithotp");
+      navigate("/Signupwithotp", {
+        state: {
+          phone: data.phone,
+          tempToken: data.temp_token,
+        },
+      });
+
+      sessionStorage.setItem("tempToken", data.temp_token);
+      sessionStorage.setItem("phone", data.phone);
     } catch (error) {
       console.error(error);
     }

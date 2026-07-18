@@ -22,9 +22,3 @@ body{
 :global(input::-ms-clear) {
   display: none;
 }
-
-/* @media screen and (-webkit-min-device-pixel-ratio:0) {
-  .BackGround {
-    height: 900px;
-  }
-} */

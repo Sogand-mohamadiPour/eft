@@ -8,29 +8,6 @@ import {
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-// const stats = [
-//   {
-//     icon: HiOutlineUsers,
-//     title: `+${userCount}`,
-//     subtitle: "کاربر در مسیر تحول",
-//   },
-//   {
-//     icon: HiOutlineStar,
-//     title: "4.8/5",
-//     subtitle: "امتیاز کاربران",
-//   },
-//   {
-//     icon: HiOutlineShieldCheck,
-//     title: "100% امن",
-//     subtitle: "حریم خصوصی شما",
-//   },
-//   {
-//     icon: HiOutlineGlobeAlt,
-//     title: "همیشه در دسترس",
-//     subtitle: "در هر زمان در هر مکان",
-//   },
-// ];
-
 function Stats() {
   const [userCount, setUserCount] = useState(0);
 
@@ -59,16 +36,6 @@ function Stats() {
 
 
    useEffect(() => {
-    console.log("useEffect RUNNING");
-    // axios
-    //   .get("/users/user-count/")
-    //   .then((res) => {
-    //     setUserCount(res.data.user_count);
-    //       console.log(res.data);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
 
       axios
     .get("http://192.168.137.1:8000/users/user-count/")
