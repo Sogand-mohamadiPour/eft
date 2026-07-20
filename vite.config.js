@@ -19,6 +19,11 @@ export default defineConfig({
         'assets/*.jpg',
       ],
 
+      workbox: {
+       clientsClaim: true,
+       skipWaiting: true,
+       },
+
       manifest: {
         name: 'EFT Reset',
         short_name: 'EFT Reset',
