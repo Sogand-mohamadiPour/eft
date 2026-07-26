@@ -50,15 +50,15 @@ function Items() {
             return (
               <div
                 key={index}
-                className="rounded-3xl border border-white/10 bg-[#2A1D4C] p-3 lg:p-6 text-center transition-all hover:-translate-y-1 hover:border-violet-500/40"
+                className="rounded-3xl border border-[#a855f7] bg-(--bgItemes) p-3 lg:p-6 text-center transition-all hover:-translate-y-1 hover:border-violet-500/40"
               >
                 <Icon className="mx-auto mb-3 text-3xl lg:text-5xl text-[#a855f7]" />
 
-                <h3 className="mb-2 text-white font-bold text-xs lg:text-2xl leading-tight">
+                <h3 className="mb-2 text-(--text) font-bold text-xs lg:text-2xl leading-tight">
                   {item.title}
                 </h3>
 
-                <p className="text-[10px] lg:text-sm leading-relaxed text-[#c9b8ea]">
+                <p className="text-[10px] lg:text-sm leading-relaxed text-(--text-secondary)">
                   {item.desc}
                 </p>
               </div>

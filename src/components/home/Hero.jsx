@@ -1,7 +1,7 @@
 function Hero() {
   return (
     <>
-      <section className="bg-[#0b0033] px-4 lg:px-6 pt-4 lg:pt-0">
+      <section className="bg-(--bg) px-4 lg:px-6 pt-4 lg:pt-0">
         {/* ================= MOBILE ================= */}
         <div className="lg:hidden">
           <div className="overflow-hidden rounded-3xl">
@@ -13,7 +13,7 @@ function Hero() {
           </div>
 
           <div className="mt-6 text-center">
-            <h1 className="text-white font-extrabold leading-tight text-3xl">
+            <h1 className="text-(--text) font-extrabold leading-tight text-3xl">
               <p>
                 <span className="text-[#f7c65a]">کاهش اضطراب</span> و
                 <span className="text-[#f7c65a]">رهایی</span>
@@ -26,7 +26,7 @@ function Hero() {
               </p>
             </h1>
 
-            <div className="mt-5 text-white/90 leading-relaxed">
+            <div className="mt-5 text-(--text) leading-relaxed">
               <p>با تمرین های قدم به قدم برای آرامش ذهن،</p>
               <p>کنترل استرس و افزایش اعتماد به نفس</p>
               <p>ذهن خود را بازنشانی کنید.</p>
@@ -56,7 +56,7 @@ function Hero() {
 
             <div className="relative z-10 flex justify-start h-full">
               <div className="w-full lg:w-[45%] flex flex-col justify-center text-right px-12 py-12">
-                <h1 className="text-white font-extrabold leading-tight text-5xl">
+                <h1 className="text-(--text) font-extrabold leading-tight text-5xl">
                   <p>
                     <span className="text-[#f7c65a]">کاهش اضطراب</span> و{" "}
                     <span className="text-[#f7c65a]">رهایی</span>
@@ -69,7 +69,7 @@ function Hero() {
                   </p>
                 </h1>
 
-                <div className="mt-8 text-white/90 text-lg leading-relaxed">
+                <div className="mt-8 text-(--text) text-lg leading-relaxed">
                   <p>با تمرین های قدم به قدم برای آرامش ذهن،</p>
                   <p>کنترل استرس و افزایش اعتماد به نفس</p>
                   <p>ذهن خود را بازنشانی کنید.</p>
@@ -91,11 +91,11 @@ function Hero() {
       </section>
 
       <p className="mt-6 text-center text-sm sm:text-lg">
-        <span className="text-[#d6c6ff]">چرا</span>{" "}
+        <span className="text-(--text)">چرا</span>{" "}
         <span className="tracking-[0.3em] bg-linear-to-l from-[#d4b896] to-[#a855f7] bg-clip-text text-transparent">
           EFT RESET
         </span>
-        <span className="text-[#d6c6ff]"> متفاوت است؟ </span>
+        <span className="text-(--text)"> متفاوت است؟ </span>
       </p>
     </>
   );
