@@ -12,6 +12,7 @@ import {
 import { BsCircleFill } from "react-icons/bs";
 import { useState } from "react";
 import Inputsample from "./Inputsample";
+import { registerUser, requestOtp } from "../../rest/auth";
 
 function Signup() {
   const navigate = useNavigate();
@@ -52,33 +53,22 @@ function Signup() {
     e.preventDefault();
 
     try {
-      const response = await fetch(
-        "https://eftreset.com/users/api/auth/register/",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: username,
-            email,
-            phone: mobile,
-            password,
-            password_confirm: confirmPassword,
-          }),
+      await registerUser({
+        name: username,
+        email,
+        phone: mobile,
+        password,
+        password_confirm: confirmPassword,
+      });
+
+      const otpData = await requestOtp(mobile);
+
+      navigate("/Signupwithotp", {
+        state: {
+          phone: mobile,
+          tempToken: otpData.temp_token,
         },
-      );
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        console.log(data);
-        throw new Error("Registration failed");
-      }
-
-      console.log("Success:", data);
-
-      navigate("/Signupwithotp");
+      });
     } catch (error) {
       console.error(error);
     }
@@ -92,7 +82,11 @@ function Signup() {
       <div
         className={`${styles.login} w-full sm:w-[80%] md:w-[70%] lg:w-[35%] mx-auto bg-[#100034] h-max rounded-3xl text-center`}
       >
-        <img className="w-1/4 mx-auto mt-3 mb-3" src="assets/logo_login.png" alt="logo" />
+        <img
+          className="w-1/4 mx-auto mt-3 mb-3"
+          src="assets/logo_login.png"
+          alt="logo"
+        />
         <p className="text-xl text-[#7D20D5]">
           حساب کاربری <span className="text-white">خود را ایجاد کنید</span>
         </p>
@@ -208,20 +202,15 @@ function Signup() {
           </ul>
 
           <button
-            onClick={() => navigate("/Signupwithotp")}
+            type="button"
+            onClick={handleSignup}
             disabled={!isValid}
-            className={`text-white    rounded-3xl
-                       cursor-pointer
-                       px-6
-                       w-[80%]
-                       h-14
-                       mt-3
-                       mb-5
-                       py-2 " ${
-                         isValid
-                           ? "bg-[linear-gradient(90deg,rgba(106,4,202,1)_0%,rgba(112,25,202,1)_33%,rgba(91,39,178,1)_66%,rgba(86,84,131,1))]"
-                           : "bg-[linear-gradient(90deg,#2A005F_0%,#30086A_35%,#2D0E62_65%,#25184D_100%)]"
-                       }`}
+            className={`text-white rounded-3xl cursor-pointer px-6 w-[80%] h-14 mt-3 mb-5 py-2
+               ${
+                 isValid
+                   ? "bg-[linear-gradient(90deg,rgba(106,4,202,1)_0%,rgba(112,25,202,1)_33%,rgba(91,39,178,1)_66%,rgba(86,84,131,1))]"
+                   : "bg-[linear-gradient(90deg,#2A005F_0%,#30086A_35%,#2D0E62_65%,#25184D_100%)]"
+               }`}
           >
             ادامه
           </button>
