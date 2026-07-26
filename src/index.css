@@ -1,8 +1,66 @@
 @import "tailwindcss";
 
+:root {
+  --bg: #ffffff;
+
+  --bg-secondary: #d7c2eb;
+
+  --bgItemes: #F5EFFF;
+
+  --bgStatas: #E5D9F2;
+
+  --bgFooter: #E5D9F2;
+
+  --bgCopywrite: #D8CBE4;
+
+  --text: black;
+  --text-secondary: #9333ea;
+
+  /* ---login--- */
+  --login-bg: url("assets/light_bg_login.png");
+
+  --login-box: #F6F2FF;
+
+  --otp-button: linear-gradient(90deg,
+      #a399af 0%, #cbc0db 35%, #b8b0c7 65%, #9a91b9 100%);
+
+  --icons: #131212ef;
+
+  --login-border: #4b3186;
+}
+
+[data-theme="dark"] {
+  --bg: #100034;
+
+  --bg-secondary: #362758;
+
+  --bgItemes: #2a1d4b;
+
+  --bgStatas: #2A1D4C;
+
+  --bgFooter: #2A1D4C;
+
+  --bgCopywrite: #665399;
+
+  --text: white;
+
+  --text-secondary: #c084fc;
+
+  /* ---login--- */
+  --login-bg: url("assets/background_login.png");
+
+  --login-box: #100034;
+
+  --otp-button: linear-gradient(90deg, #2A005F 0%, #30086A 35%, #2D0E62 65%, #25184D 100%);
+
+  --icons: #9E9E9E80;
+
+  --login-border: #8B5CF6;
+}
+
 body {
-  background-color: #100034;
+  background-color: var(--bg);
   font-family: "Vazirmatn", system-ui, sans-serif;
-  color: #fff;
+  color: var(--text);
   padding: 10px;
 }

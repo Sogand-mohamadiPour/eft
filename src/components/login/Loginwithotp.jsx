@@ -13,7 +13,7 @@ function Loginwithotp() {
       className={`${styles.BackGround} h-screen lg:h-full px-2 w-full flex items-center`}
     >
       <div
-        className={`${styles.login} mx-auto w-full sm:w-[80%] md:w-[70%] lg:w-[40%] bg-[#100034] h-165 rounded-3xl text-center`}
+        className={`${styles.login} mx-auto w-full sm:w-[80%] md:w-[70%] lg:w-[40%] bg-(--login-box) h-165 rounded-3xl text-center`}
       >
         <img className="w-1/4 mx-auto mt-3 mb-15" src="assets/logo_login.png" alt="logo" />
         <Inputsample

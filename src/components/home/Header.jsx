@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HiBars3, HiXMark } from "react-icons/hi2";
 import { FiSun, FiMoon } from "react-icons/fi";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const NAV_LINKS = [
   { label: "خانه", to: "/" },
@@ -42,8 +44,8 @@ function HeaderNavItem({ label, to, onClick, className = "" }) {
       end={to === "/"}
       onClick={onClick}
       className={({ isActive }) =>
-        `relative block px-4 py-3 text-lg font-medium transition-colors hover:text-white ${
-          isActive ? "text-white" : "text-[#c4b5fd]/90"
+        `relative block px-4 py-3 text-lg font-medium transition-colors hover:text-(--text-secondary) ${
+          isActive ? "text-(--text-secondary)" : "text-(--text)"
         } ${className}`
       }
     >
@@ -60,16 +62,23 @@ function HeaderNavItem({ label, to, onClick, className = "" }) {
 }
 
 function ThemeToggle({ className = "" }) {
-  const [dark, setDark] = useState(true);
+  // const [dark, setDark] = useState(true);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
     <button
       type="button"
-      onClick={() => setDark((prev) => !prev)}
-      className={`flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-white transition hover:bg-white/10 cursor-pointer ${className}`}
+      // onClick={() => setDark((prev) => !prev)}
+      onClick={toggleTheme}
+      className={`flex items-center justify-center gap-2 rounded-full border border-[#565483] bg-white/5 px-5 py-2.5 text-(--text) transition hover:bg-white/10 cursor-pointer ${className}`}
       aria-label="تغییر تم"
     >
-      {dark ? <FiMoon className="h-5 w-5" /> : <FiSun className="h-5 w-5" />}
+      {/* {dark ? <FiMoon className="h-5 w-5" /> : <FiSun className="h-5 w-5" />} */}
+      {
+  theme === "dark"
+    ? <FiSun className="h-5 w-5" />
+    : <FiMoon className="h-5 w-5" />
+}
     </button>
   );
 }
@@ -78,7 +87,7 @@ function LoginButton() {
   return (
     <Link
       to="/login"
-      className="rounded-full bg-linear-to-l from-[#9333ea] to-[#6366f1] px-5 py-2.5 text-sm font-semibold text-white whitespace-nowrap shadow-[0_0_24px_rgba(147,51,234,0.35)] transition-opacity hover:opacity-90 sm:px-6"
+      className="rounded-full bg-linear-to-l from-[#9333ea] to-[#6366f1] px-5 py-2.5 text-sm font-semibold text-(--text) whitespace-nowrap shadow-[0_0_24px_rgba(147,51,234,0.35)] transition-opacity hover:opacity-90 sm:px-6"
     >
       ورود / ثبت نام
     </Link>
@@ -105,7 +114,7 @@ function Header() {
           <div className="flex items-center gap-1 sm:gap-2">
             <button
               type="button"
-              className="lg:hidden rounded-lg p-2 text-white hover:bg-white/10"
+              className="lg:hidden rounded-lg p-2 text-(--text) hover:bg-(--text-secondary)"
               onClick={openMenu}
               aria-expanded={menuOpen}
               aria-label="باز کردن منو"
@@ -137,12 +146,12 @@ function Header() {
       >
         <button
           type="button"
-          className="absolute inset-0 bg-[#100034]/50 backdrop-blur-md"
+          className="absolute inset-0 bg-([#100034]/50) backdrop-blur-md"
           onClick={closeMenu}
         />
 
         <aside
-          className={`absolute top-0 right-0 flex h-full w-[min(85vw,320px)] flex-col border-l border-white/10 bg-[#1a0040] shadow-2xl transition-transform duration-300 ease-out ${
+          className={`absolute top-0 right-0 flex h-full w-[min(85vw,320px)] flex-col border-l border-white/10 bg-(--bg-secondary) shadow-2xl transition-transform duration-300 ease-out ${
             menuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -151,7 +160,7 @@ function Header() {
 
             <button
               type="button"
-              className="rounded-lg p-2 text-white/80 transition-colors hover:bg-white/10 hover:text-white cursor-pointer"
+              className="rounded-lg p-2 text-(white/80) transition-colors hover:bg-white/10 hover:text-(--text) cursor-pointer"
               onClick={closeMenu}
             >
               <HiXMark className="h-6 w-6" />

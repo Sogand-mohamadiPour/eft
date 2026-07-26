@@ -11,35 +11,6 @@ function Login() {
   const [error, setError] = useState("");
   const [password, setPassword] = useState("");
 
-  // const handleLogin = async () => {
-  //   try {
-  //     const response = await fetch(
-  //       "https://eftreset.com/users/api/auth/login/",
-  //       // "http://10.193.204.21:8000/users/api/auth/login/",
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({
-  //           phone: "string",
-  //           password: "string",
-  //         }),
-  //       },
-  //     );
-
-  //     const data = await response.json();
-
-  //     if (!response.ok) {
-  //       throw new Error(data.message || "Login failed");
-  //     }
-
-  //     console.log(data);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
   const handleLogin = async () => {
     setError("");
 
@@ -84,7 +55,7 @@ function Login() {
       className={`${styles.BackGround} flex justify-center items-center h-screen lg:h-full px-2 w-full`}
     >
       <div
-        className={`${styles.login} w-full sm:w-[80%] md:w-[70%] lg:w-[40%] bg-[#100034] h-max rounded-3xl text-center`}
+        className={`${styles.login} w-full sm:w-[80%] md:w-[70%] lg:w-[40%] bg-(--login-box) h-max rounded-3xl text-center`}
       >
         <img className="w-1/4 mx-auto mt-3" src="assets/logo_login.png" alt="logo" />
         <p className="text-3xl mt-5">
@@ -113,7 +84,7 @@ function Login() {
 
           <p
             onClick={() => navigate("/Passwordreset")}
-            style={{ cursor: "pointer", color: "white" }}
+            style={{ cursor: "pointer"}}
           >
             رمز عبور را فراموش کردید؟
           </p>
@@ -139,8 +110,7 @@ function Login() {
 
         <button
           onClick={() => navigate("/Loginwithotp")}
-          className="bg-[linear-gradient(90deg,#2A005F_0%,#30086A_35%,#2D0E62_65%,#25184D_100%)]
-          text[rgba(255,255,255,1)]
+          className="bg-(image:--otp-button)
           rounded-3xl
           cursor-pointer
           px-6
@@ -152,10 +122,10 @@ function Login() {
           ورود با کد تایید
         </button>
 
-        <p className="text-[#FFFFFF] text-sm mt-4 pb-6">
+        <p className="text-sm mt-4 pb-6">
           حساب کاربری ندارید؟{" "}
           <span
-            className="text-[#F3B961] cursor-pointer"
+            className="text-[#cc7f0a] cursor-pointer"
             onClick={() => navigate("/Signup")}
           >
             ثبت نام کنید

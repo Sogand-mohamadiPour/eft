@@ -1,6 +1,6 @@
+import { useState } from "react";
 import styles from "./Login.module.css";
 import Otpreset from "./Otpreset";
-import { useState } from "react";
 import { useLocation, Navigate } from "react-router-dom";
 
 function Signupwithotp() {
@@ -22,7 +22,7 @@ function Signupwithotp() {
       className={`${styles.BackGround} h-screen lg:h-full px-2 py-12 w-full`}
     >
       <div
-        className={`${styles.login} mx-auto pt-8 w-full sm:w-[80%] md:w-[70%] lg:w-[40%] bg-[#100034] h-150 rounded-3xl text-center`}
+        className={`${styles.login} mx-auto pt-8 w-full sm:w-[80%] md:w-[70%] lg:w-[40%] bg-(--login-box) h-150 rounded-3xl text-center`}
       >
         <img
           className="w-1/4 mx-auto mt-3 mb-7"

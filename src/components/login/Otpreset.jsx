@@ -53,6 +53,7 @@ function Otpreset({ phone, tempToken, otpRequestCount }) {
 
     const newOtp = [...otp];
     newOtp[index] = digit;
+
     setOtp(newOtp);
 
     if (digit && index < OTP_LENGTH - 1) {

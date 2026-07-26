@@ -18,7 +18,7 @@ function Passwordreset() {
       className={`${styles.BackGround}  h-screen lg:h-screen py-10 px-2 w-full`}
     >
       <div
-        className={`${styles.login} w-full sm:w-[80%] md:w-[70%] lg:w-[35%] mx-auto bg-[#100034] h-165 rounded-3xl text-center`}
+        className={`${styles.login} w-full sm:w-[80%] md:w-[70%] lg:w-[35%] mx-auto bg-(--login-box) h-165 rounded-3xl text-center`}
       >
         <img className="w-1/4 mx-auto mt-3" src="assets/logo_login.png" alt="logo" />
         <p className="text-xl  mt-5 mb-8">
@@ -50,7 +50,7 @@ function Passwordreset() {
         </button>
       </div>
       <div className="flex justify-between w-[80%] sm:w-[70%] md:w-[50%] lg:w-[30%] h-1.5 mx-auto mt-12 ">
-        <div className={`${styles.login} w-full rounded mx-1 bg-[#8B5CF6]`} />
+        <div className={`${styles.login} w-full rounded mx-1 bg-(--login-border)`} />
         <div className="w-full rounded mx-1 bg-[#9E9E9E]"></div>
       </div>
     </div>
