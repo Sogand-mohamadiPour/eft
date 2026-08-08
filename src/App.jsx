@@ -1,6 +1,8 @@
 import { Route, Routes } from "react-router-dom";
+
 import Header from "./components/home/Header";
 import Landing from "./components/home/Landing";
+
 import Login from "./components/login/Login";
 import Passwordreset from "./components/login/Passwordreset";
 import LoginWithOtp from "./components/login/Loginwithotp";
@@ -8,19 +10,18 @@ import Changepass from "./components/login/Changepass";
 import Signup from "./components/login/Signup";
 import Signupwithotp from "./components/login/Signupwithotp";
 
+import DashboardLayout from "./dashboard/layouts/DashboardLayout";
+import DashboardHome from "./dashboard/pages/DashboardHome/DashboardHome";
+
 function PagePlaceholder({ title }) {
-  return (
-    <div className="px-4 py-16 text-center text-white/80">
-      <h1 className="text-2xl font-semibold text-white">{title}</h1>
-    </div>
-  );
+  return <div>{title}</div>;
 }
 
 function Layout({ children }) {
   return (
     <>
       <Header />
-      <main>{children}</main>
+      {children}
     </>
   );
 }
@@ -28,6 +29,10 @@ function Layout({ children }) {
 function App() {
   return (
     <Routes>
+      {/* =========================
+          PUBLIC ROUTES
+      ========================= */}
+
       <Route
         path="/"
         element={
@@ -83,11 +88,43 @@ function App() {
           </Layout>
         }
       />
+
       <Route path="/Passwordreset" element={<Passwordreset />} />
+
       <Route path="/loginwithotp" element={<LoginWithOtp />} />
+
       <Route path="/Changepass" element={<Changepass />} />
+
       <Route path="/Signup" element={<Signup />} />
+
       <Route path="/Signupwithotp" element={<Signupwithotp />} />
+
+      {/* =========================
+          CUSTOMER DASHBOARD
+      ========================= */}
+
+      <Route path="/dashboard" element={<DashboardLayout />}>
+        <Route index element={<DashboardHome />} />
+
+        <Route
+          path="profile"
+          element={<PagePlaceholder title="پروفایل من" />}
+        />
+
+        <Route
+          path="courses"
+          element={<PagePlaceholder title="دوره های من" />}
+        />
+
+        <Route
+          path="new-course"
+          element={<PagePlaceholder title="درخواست دوره جدید" />}
+        />
+
+        <Route path="wallet" element={<PagePlaceholder title="کیف پول من" />} />
+
+        <Route path="reviews" element={<PagePlaceholder title="ثبت نظرات" />} />
+      </Route>
     </Routes>
   );
 }

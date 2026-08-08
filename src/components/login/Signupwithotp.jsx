@@ -34,11 +34,7 @@ function Signupwithotp() {
           otpRequestCount={otpRequestCount}
         />
       </div>
-
-      <SignupProgress
-        stepOneClass="bg-[#8B5CF6]"
-        stepTwoClass="bg-[#8B5CF6]"
-      />
+      <SignupProgress stepOneClass="bg-[#8B5CF6]" stepTwoClass="bg-[#8B5CF6]" />
     </div>
   );
 }
