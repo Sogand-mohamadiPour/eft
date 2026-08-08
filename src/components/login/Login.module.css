@@ -3,7 +3,11 @@ body{
 }
 
 .BackGround{
+<<<<<<< HEAD
     background-image: var(--login-bg);
+=======
+    background-image: url(assets/background_login.png);
+>>>>>>> 296be55362806e7e853501d1b07d10bd2b574b42
     background-size: cover;
     background-repeat: no-repeat;
     height: auto;
@@ -21,4 +25,8 @@ body{
 
 :global(input::-ms-clear) {
   display: none;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 296be55362806e7e853501d1b07d10bd2b574b42
