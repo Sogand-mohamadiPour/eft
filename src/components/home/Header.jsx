@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HiBars3, HiXMark } from "react-icons/hi2";
 import { FiSun, FiMoon } from "react-icons/fi";
-import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 
 const NAV_LINKS = [
@@ -62,23 +61,20 @@ function HeaderNavItem({ label, to, onClick, className = "" }) {
 }
 
 function ThemeToggle({ className = "" }) {
-  // const [dark, setDark] = useState(true);
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
     <button
       type="button"
-      // onClick={() => setDark((prev) => !prev)}
       onClick={toggleTheme}
       className={`flex items-center justify-center gap-2 rounded-full border border-[#565483] bg-white/5 px-5 py-2.5 text-(--text) transition hover:bg-white/10 cursor-pointer ${className}`}
       aria-label="تغییر تم"
     >
-      {/* {dark ? <FiMoon className="h-5 w-5" /> : <FiSun className="h-5 w-5" />} */}
-      {
-  theme === "dark"
-    ? <FiSun className="h-5 w-5" />
-    : <FiMoon className="h-5 w-5" />
-}
+      {theme === "dark" ? (
+        <FiSun className="h-5 w-5" />
+      ) : (
+        <FiMoon className="h-5 w-5" />
+      )}
     </button>
   );
 }
