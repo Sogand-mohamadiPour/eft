@@ -2,15 +2,15 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { requestOtp, verifyOtp } from "../../rest/auth";
 import { primaryButtonClass } from "./shared/loginClasses";
-import {
-  clearSignupOtp,
-  saveSignupOtp,
-} from "../../utils/signupOtpStorage";
+import { clearSignupOtp, saveSignupOtp } from "../../utils/signupOtpStorage";
+
+import { useAuth } from "../../auth/AuthContext";
 
 const OTP_LENGTH = 5;
 
 function Otpreset({ phone, tempToken, otpRequestCount }) {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const inputsRef = useRef([]);
 
   const [otp, setOtp] = useState(Array(OTP_LENGTH).fill(""));
@@ -80,10 +80,19 @@ function Otpreset({ phone, tempToken, otpRequestCount }) {
     }
 
     try {
-      await verifyOtp(code, currentTempToken);
-      alert("ثبت نام با موفقیت انجام شد.");
+      const data = await verifyOtp(code, currentTempToken);
+
+      console.log("SIGNUP SUCCESS:", data);
+
+      login({
+        access: data.access,
+        refresh: data.refresh,
+        name: data.name,
+      });
+
       clearSignupOtp();
-      navigate("/login");
+
+      navigate("/dashboard");
     } catch (error) {
       console.error(error);
       alert("کد وارد شده صحیح نیست.");

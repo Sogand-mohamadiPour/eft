@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { HiBars3, HiXMark } from "react-icons/hi2";
 import { FiSun, FiMoon } from "react-icons/fi";
 import { ThemeContext } from "../../context/ThemeContext";
+import { useAuth } from "../../auth/AuthContext";
 
 const NAV_LINKS = [
   { label: "خانه", to: "/" },
@@ -79,11 +80,30 @@ function ThemeToggle({ className = "" }) {
   );
 }
 
-function LoginButton() {
+function LoginButton({ onLogout }) {
+  const { isAuthenticated, user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+
+    if (onLogout) {
+      onLogout();
+    }
+
+    navigate("/");
+  };
+
+  if (isAuthenticated) {
+    return (
+      <span className="text-(--text) text-lg font-medium">{user?.name}</span>
+    );
+  }
+
   return (
     <Link
       to="/login"
-      className="rounded-full bg-linear-to-l from-[#9333ea] to-[#6366f1] px-5 py-2.5 text-sm font-semibold text-(--text) whitespace-nowrap shadow-[0_0_24px_rgba(147,51,234,0.35)] transition-opacity hover:opacity-90 sm:px-6"
+      className="rounded-full bg-(--text-secondary) px-5 py-2.5 text-white transition hover:opacity-90"
     >
       ورود / ثبت نام
     </Link>
@@ -92,9 +112,26 @@ function LoginButton() {
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [logoutMessage, setLogoutMessage] = useState("");
 
   const closeMenu = () => setMenuOpen(false);
   const openMenu = () => setMenuOpen(true);
+
+  useEffect(() => {
+    const message = sessionStorage.getItem("logoutMessage");
+
+    if (message) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setLogoutMessage(message);
+      sessionStorage.removeItem("logoutMessage");
+
+      const timer = setTimeout(() => {
+        setLogoutMessage("");
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -128,7 +165,11 @@ function Header() {
 
           <div className="flex items-center gap-2 sm:gap-3">
             <ThemeToggle className="hidden sm:flex sm:items-center sm:justify-center" />
-            <LoginButton />
+            <LoginButton
+              onLogout={() => {
+                setLogoutMessage("با موفقیت از حساب خارج شدید");
+              }}
+            />
           </div>
         </div>
       </header>
@@ -174,6 +215,11 @@ function Header() {
           </div>
         </aside>
       </div>
+      {logoutMessage && (
+        <div className="fixed bottom-5 left-1/2 z-100 -translate-x-1/2 rounded-xl bg-(--bg-secondary) px-5 py-3 text-sm text-(--text) shadow-lg">
+          {logoutMessage}
+        </div>
+      )}
     </>
   );
 }

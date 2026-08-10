@@ -8,8 +8,12 @@ import { FaMobileAlt } from "react-icons/fa";
 import { useState } from "react";
 import { loginUser } from "../../rest/auth";
 
+import { useAuth } from "../../auth/AuthContext";
+
 function Login() {
   const navigate = useNavigate();
+  const { login } = useAuth();
+
   const [mobile, setMobile] = useState("");
   const [error, setError] = useState("");
   const [password, setPassword] = useState("");
@@ -24,6 +28,13 @@ function Login() {
       });
 
       console.log("SUCCESS:", data);
+
+      login({
+        access: data.access,
+        refresh: data.refresh,
+        name: data.name,
+      });
+
       navigate("/dashboard");
     } catch (error) {
       setError(error?.message || "Login failed");

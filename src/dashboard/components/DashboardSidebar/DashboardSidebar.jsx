@@ -1,4 +1,6 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+
+import { useAuth } from "../../../auth/AuthContext";
 
 const menuItems = [
   {
@@ -34,6 +36,17 @@ const menuItems = [
 ];
 
 export default function DashboardSidebar() {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+
+    sessionStorage.setItem("logoutMessage", "با موفقیت از حساب خارج شدید");
+
+    navigate("/");
+  };
+
   return (
     <aside
       className="
@@ -49,7 +62,6 @@ export default function DashboardSidebar() {
         text-white
       "
     >
-      {/* User */}
       <div
         className="
           flex
@@ -136,6 +148,7 @@ export default function DashboardSidebar() {
 
         {/* Logout */}
         <button
+          onClick={handleLogout}
           className="
             w-full
             flex

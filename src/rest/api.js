@@ -1,4 +1,5 @@
 const DEFAULT_API_ORIGIN = "https://eftreset.com";
+// const DEFAULT_API_ORIGIN = "http://10.151.62.110:8000";
 
 export const API_ORIGIN =
   import.meta.env.VITE_API_ORIGIN?.trim() || DEFAULT_API_ORIGIN;
@@ -23,7 +24,21 @@ export async function apiRequest(url, options = {}) {
   const data = await response.json().catch(() => ({}));
 
   if (!response.ok) {
-    throw new Error(data.message || "Something went wrong");
+    throw new Error(getErrorMessage(data));
+  }
+
+  function getErrorMessage(data) {
+    if (data.message) {
+      return data.message;
+    }
+
+    if (typeof data === "string") {
+      return data;
+    }
+
+    return (
+      Object.values(data).flat().join(" ") || "خطایی رخ داد. دوباره تلاش کنید."
+    );
   }
 
   return data;
