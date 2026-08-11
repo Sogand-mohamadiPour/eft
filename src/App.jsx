@@ -13,6 +13,8 @@ import Signupwithotp from "./components/login/Signupwithotp";
 import DashboardLayout from "./dashboard/layouts/DashboardLayout";
 import DashboardHome from "./dashboard/pages/DashboardHome/DashboardHome";
 
+import ProtectedRoute from "./auth/ProtectedRoute";
+
 function PagePlaceholder({ title }) {
   return <div>{title}</div>;
 }
@@ -29,10 +31,6 @@ function Layout({ children }) {
 function App() {
   return (
     <Routes>
-      {/* =========================
-          PUBLIC ROUTES
-      ========================= */}
-
       <Route
         path="/"
         element={
@@ -99,31 +97,35 @@ function App() {
 
       <Route path="/Signupwithotp" element={<Signupwithotp />} />
 
-      {/* =========================
-          CUSTOMER DASHBOARD
-      ========================= */}
+      <Route element={<ProtectedRoute />}>
+        <Route path="/dashboard" element={<DashboardLayout />}>
+          <Route index element={<DashboardHome />} />
 
-      <Route path="/dashboard" element={<DashboardLayout />}>
-        <Route index element={<DashboardHome />} />
+          <Route
+            path="profile"
+            element={<PagePlaceholder title="پروفایل من" />}
+          />
 
-        <Route
-          path="profile"
-          element={<PagePlaceholder title="پروفایل من" />}
-        />
+          <Route
+            path="courses"
+            element={<PagePlaceholder title="دوره های من" />}
+          />
 
-        <Route
-          path="courses"
-          element={<PagePlaceholder title="دوره های من" />}
-        />
+          <Route
+            path="new-course"
+            element={<PagePlaceholder title="درخواست دوره جدید" />}
+          />
 
-        <Route
-          path="new-course"
-          element={<PagePlaceholder title="درخواست دوره جدید" />}
-        />
+          <Route
+            path="wallet"
+            element={<PagePlaceholder title="کیف پول من" />}
+          />
 
-        <Route path="wallet" element={<PagePlaceholder title="کیف پول من" />} />
-
-        <Route path="reviews" element={<PagePlaceholder title="ثبت نظرات" />} />
+          <Route
+            path="reviews"
+            element={<PagePlaceholder title="ثبت نظرات" />}
+          />
+        </Route>
       </Route>
     </Routes>
   );
