@@ -2,11 +2,18 @@ import styles from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
 import Inputsample from "./Inputsample.jsx";
 import Input from "./Input.jsx";
+import LoginLogo from "./shared/LoginLogo";
+import { primaryButtonClass } from "./shared/loginClasses";
 import { FaMobileAlt } from "react-icons/fa";
 import { useState } from "react";
+import { loginUser } from "../../rest/auth";
+
+import { useAuth } from "../../auth/AuthContext";
 
 function Login() {
   const navigate = useNavigate();
+  const { login } = useAuth();
+
   const [mobile, setMobile] = useState("");
   const [error, setError] = useState("");
   const [password, setPassword] = useState("");
@@ -15,40 +22,26 @@ function Login() {
     setError("");
 
     try {
-      const response = await fetch(
-        "https://eftreset.com/users/api/auth/login/",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            phone: mobile,
-            password: password,
-          }),
-        },
-      );
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        const errorMessage =
-          data?.message ||
-          data?.phone?.[0] ||
-          data?.password?.[0] ||
-          "Login failed";
-
-        setError(errorMessage);
-        return;
-      }
+      const data = await loginUser({
+        phone: mobile,
+        password,
+      });
 
       console.log("SUCCESS:", data);
+
+      login({
+        access: data.access,
+        refresh: data.refresh,
+        name: data.name,
+      });
+
       navigate("/dashboard");
-    } catch (err) {
-      setError("Network error. Please try again.");
-      console.error(err);
+    } catch (error) {
+      setError(error?.message || "Login failed");
+      console.error(error);
     }
   };
+
   return (
     <div
       dir="rtl"
@@ -57,7 +50,8 @@ function Login() {
       <div
         className={`${styles.login} w-full sm:w-[80%] md:w-[70%] lg:w-[40%] bg-(--login-box) h-max rounded-3xl text-center`}
       >
-        <img className="w-1/4 mx-auto mt-3" src="assets/logo_login.png" alt="logo" />
+        <LoginLogo />
+
         <p className="text-3xl mt-5">
           سلام، <span className="text-[#F3B961]">خوش برگشتی!</span>
         </p>
@@ -74,6 +68,7 @@ function Login() {
         />
 
         <Input password={password} setPassword={setPassword} />
+
         {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
 
         <div className="flex justify-around mt-5">
@@ -84,7 +79,7 @@ function Login() {
 
           <p
             onClick={() => navigate("/Passwordreset")}
-            style={{ cursor: "pointer"}}
+            className="cursor-pointer"
           >
             رمز عبور را فراموش کردید؟
           </p>
@@ -93,15 +88,7 @@ function Login() {
         <button
           onClick={handleLogin}
           type="submit"
-          className="bg-[linear-gradient(90deg,rgba(106,4,202,1)_0%,rgba(112,25,202,1)_33%,rgba(91,39,178,1)_66%,rgba(86,84,131,1))]
-          text[rgba(255,255,255,1)]
-          rounded-3xl
-          cursor-pointer
-          px-6
-          w-[80%]
-          h-14
-          mt-5
-          py-2"
+          className={`${primaryButtonClass} w-[80%] mt-5`}
         >
           ورود به حساب
         </button>
@@ -110,14 +97,7 @@ function Login() {
 
         <button
           onClick={() => navigate("/Loginwithotp")}
-          className="bg-(image:--otp-button)
-          rounded-3xl
-          cursor-pointer
-          px-6
-          w-[80%]
-          h-14
-          mt-2
-          py-2"
+          className="bg-(image:--otp-button) rounded-3xl cursor-pointer px-6 w-[80%] h-14 mt-2 py-2"
         >
           ورود با کد تایید
         </button>

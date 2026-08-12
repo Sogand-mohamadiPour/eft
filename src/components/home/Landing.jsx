@@ -1,7 +1,7 @@
 import Hero from "./Hero";
 import Items from "./Items";
 import Stats from "./Statas";
-import Footer from "./Footer"
+import Footer from "./Footer";
 
 function Landing() {
   return (

@@ -4,49 +4,52 @@ import {
   HiOutlineStar,
   HiOutlineUsers,
 } from "react-icons/hi2";
-
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { API_ORIGIN } from "../../rest/api";
+
+const STATIC_STATS = [
+  {
+    icon: HiOutlineStar,
+    title: "4.8/5",
+    subtitle: "امتیاز کاربران",
+  },
+  {
+    icon: HiOutlineShieldCheck,
+    title: "100% امن",
+    subtitle: "حریم خصوصی شما",
+  },
+  {
+    icon: HiOutlineGlobeAlt,
+    title: "همیشه در دسترس",
+    subtitle: "در هر زمان در هر مکان",
+  },
+];
 
 function Stats() {
   const [userCount, setUserCount] = useState(0);
 
-   const stats = [
+  useEffect(() => {
+    axios
+      .get(`${API_ORIGIN}/users/user-count/`)
+      .then((res) => {
+        console.log("SUCCESS:", res.data);
+        setUserCount(res.data.count);
+      })
+      .catch((err) => {
+        console.log("ERROR:", err);
+      });
+  }, []);
+
+  const stats = [
     {
       icon: HiOutlineUsers,
       title: `+${userCount || 0}`,
       subtitle: "کاربر در مسیر تحول",
     },
-    {
-      icon: HiOutlineStar,
-      title: "4.8/5",
-      subtitle: "امتیاز کاربران",
-    },
-    {
-      icon: HiOutlineShieldCheck,
-      title: "100% امن",
-      subtitle: "حریم خصوصی شما",
-    },
-    {
-      icon: HiOutlineGlobeAlt,
-      title: "همیشه در دسترس",
-      subtitle: "در هر زمان در هر مکان",
-    },
+    ...STATIC_STATS,
   ];
 
-
-   useEffect(() => {
-
-      axios
-    .get("http://192.168.137.1:8000/users/user-count/")
-    .then((res) => {
-      console.log("SUCCESS:", res.data);
-      setUserCount(res.data.count);
-    })
-    .catch((err) => {
-      console.log("ERROR:", err);
-    });
-  }, []);
   return (
     <section className="px-4 py-8">
       <div className="mx-auto">
@@ -89,7 +92,9 @@ function Stats() {
                   <h3 className="text-(--text) text-base font-semibold">
                     {item.title}
                   </h3>
-                  <p className="text-(--text-secondary) text-[10px]">{item.subtitle}</p>
+                  <p className="text-(--text-secondary) text-[10px]">
+                    {item.subtitle}
+                  </p>
                 </div>
               </div>
             );
