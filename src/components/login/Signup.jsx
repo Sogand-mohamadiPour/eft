@@ -83,13 +83,14 @@ function Signup() {
 
   return (
     <div
+
       dir="rtl"
-      className={`${styles.BackGround} h-screen lg:h-screen py-10 px-2 w-full`}
+      className={`${styles.BackGround} h-fit px-2 w-full`}
     >
       <div
-        className={`${styles.login} w-full sm:w-[80%] md:w-[70%] lg:w-[35%] mx-auto bg-(--login-box) h-max rounded-3xl text-center`}
+        className={`${styles.login} w-full pb-5 sm:w-[80%] md:w-[70%] lg:w-[35%] mx-auto bg-(--login-box) rounded-3xl text-center`}
       >
-        <LoginLogo className="w-1/4 mx-auto mt-3 mb-3" />
+        <LoginLogo className="w-1/4 mx-auto mt-1 mb-1" />
 
         <p className="text-xl text-[#7D20D5]">
           حساب کاربری <span className="text-(--text)">خود را ایجاد کنید</span>
@@ -147,7 +148,7 @@ function Signup() {
             type="button"
             onClick={handleSignup}
             disabled={!passwordRules.isValid || isSubmitting}
-            className={`w-[80%] mt-3 mb-5 ${
+            className={`w-[80%] ${
               passwordRules.isValid && !isSubmitting
                 ? primaryButtonClass
                 : primaryButtonDisabledClass

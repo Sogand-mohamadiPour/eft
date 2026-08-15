@@ -7,7 +7,7 @@ function Inputsample({ icon, placeholder, name, value, onChange, maxLength }) {
         </span>
 
         <input
-          className="text-(--icons) text-[18px] focus:text-(--text) hover:border-(--text) bg-[rgba(42,29,76,0.2)]  h-12 w-[80%]  lg:w-full border border-[#2c2b2b80]  rounded-2xl mt-4 text-start pr-12"
+          className="text-(--icons) text-[18px] focus:text-(--text) hover:border-(--text) bg-[rgba(42,29,76,0.2)]  h-12 w-[80%]  lg:w-full border border-[#2c2b2b80]  rounded-2xl mt-3 text-start pr-12"
           type="text"
           placeholder={placeholder}
           name={name}

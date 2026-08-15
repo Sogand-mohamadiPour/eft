@@ -20,13 +20,13 @@ function Changepass() {
   return (
     <div
       dir="rtl"
-      className={`${styles.BackGround} h-screen lg:h-screen py-10 px-2 w-full`}
+      className={`${styles.BackGround} h-screen lg:h-screen px-2 w-full`}
     >
       <div
-        className={`${styles.login} w-full sm:w-[80%] md:w-[70%] lg:w-[35%] mx-auto bg-(--login-box) h-fix rounded-3xl text-center`}
+        className={`${styles.login} w-full pb-5 sm:w-[80%] md:w-[70%] lg:w-[35%] mx-auto bg-(--login-box) rounded-3xl text-center`}
       >
         <img className="w-1/4 mx-auto mt-3" src="assets/logo_login.png" alt="logo" />
-        <p className="text-xl  mt-5 mb-8">
+        <p className="text-xl  mt-2 mb-8">
           بازیابی <span className="text-[#7D20D5]">رمز عبور</span>
         </p>
         <form action="#">
@@ -37,7 +37,7 @@ function Changepass() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="رمز عبور"
-              className="text-(--icons) focus:text-(--text) hover:border-(--text) bg-[rgba(42,29,76,0.2)] h-12 w-[80%] lg:w-full border border-[#2c2b2b80] rounded-2xl mt-4 text-start pl-12 pr-12"
+              className="text-(--icons) focus:text-(--text) hover:border-(--text) bg-[rgba(42,29,76,0.2)] h-12 w-[80%] lg:w-full border border-[#2c2b2b80] rounded-2xl mt-2 text-start pl-12 pr-12"
             />
 
             <button
@@ -56,19 +56,19 @@ function Changepass() {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               placeholder="تکرار رمز عبور"
-              className="text-(--icons) focus:text-(--text) hover:border-(--text) bg-[rgba(42,29,76,0.2)] h-12 w-[80%] lg:w-full border border-[#2c2b2b80] rounded-2xl mt-4 text-start pl-12 pr-12"
+              className="text-(--icons) focus:text-(--text) hover:border-(--text) bg-[rgba(42,29,76,0.2)] h-12 w-[80%] lg:w-full border border-[#2c2b2b80] rounded-2xl mt-2 text-start pl-12 pr-12"
             />
 
             <button
               type="button"
               onClick={() => setShowConfirm(!showConfirm)}
-              className="icon absolute cursor-pointer hover:text-(--text) left-14 md:left-17 lg:left-4 top-1/2 mt-2 -translate-y-1/2 text-(--icons)  group-focus-within:text-(--text)"
+              className="icon absolute cursor-pointer hover:text-(--text) left-14 md:left-17 lg:left-4 top-1/2 mt-1 -translate-y-1/2 text-(--icons)  group-focus-within:text-(--text)"
             >
               {showConfirm ? <FaEyeSlash /> : <FaEye />}
             </button>
           </div>
 
-          <ul className="mx-auto w-[80%] p-5 space-y-3 text-right">
+          <ul className="mx-auto w-[80%] p-2 space-y-3 text-right">
             <li className="flex items-center gap-2">
               {hasLetter ? (
                 <FaCheck className="text-[12px]" />
@@ -122,8 +122,6 @@ function Changepass() {
                 px-6
                 w-[80%]
                 h-14
-                mt-3
-                mb-8
                 py-2 " ${
                   isValid
                     ? "bg-[linear-gradient(90deg,rgba(106,4,202,1)_0%,rgba(112,25,202,1)_33%,rgba(91,39,178,1)_66%,rgba(86,84,131,1))]"
@@ -134,7 +132,7 @@ function Changepass() {
           </button>
         </form>
       </div>
-      <div className="flex justify-between w-[80%] sm:w-[70%] md:w-[50%] lg:w-[30%] h-1.5 mx-auto mt-12 ">
+      <div className="flex justify-between w-[80%] sm:w-[70%] md:w-[50%] lg:w-[30%] h-1.5 mt-5 mx-auto">
         <div className={`${styles.login} w-full rounded mx-1 bg-(--login-border)`} />
         <div
           className={`${styles.login} w-full rounded mx-1 bg-(--login-border)`}

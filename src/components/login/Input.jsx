@@ -10,7 +10,7 @@ function Input({ password, setPassword }) {
         <FaLock className="icon absolute right-14 md:right-17 lg:right-4 top-1/2 mt-2 -translate-y-1/2 text-(--icons) group-focus-within:text-(--text)" />
 
         <input
-          className="text-(--icons) focus:text-(--text) hover:border-(--text) bg-[rgba(42,29,76,0.2)] h-12 w-[80%] lg:w-full border border-[#2c2b2b80] rounded-2xl mt-4 text-start pl-12 pr-12"
+          className="text-(--icons) focus:text-(--text) hover:border-(--text) bg-[rgba(42,29,76,0.2)] h-12 w-[80%] lg:w-full border border-[#2c2b2b80] rounded-2xl mt-1 text-start pl-12 pr-12"
           type={showPassword ? "text" : "password"}
           name="password"
           placeholder="رمز عبور"

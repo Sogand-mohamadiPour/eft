@@ -10,6 +10,11 @@ import Changepass from "./components/login/Changepass";
 import Signup from "./components/login/Signup";
 import Signupwithotp from "./components/login/Signupwithotp";
 
+import Content from "./components/content/Content";
+import Blog from "./components/blog/Blog";
+import About from "./components/about/About";
+import Footer from "./components/home/Footer";
+
 import DashboardLayout from "./dashboard/layouts/DashboardLayout";
 import DashboardHome from "./dashboard/pages/DashboardHome/DashboardHome";
 
@@ -46,8 +51,10 @@ function App() {
         path="/content"
         element={
           <Layout>
-            <PagePlaceholder title="محتوا" />
+            <Content />
+            <Footer />
           </Layout>
+          
         }
       />
 
@@ -73,7 +80,8 @@ function App() {
         path="/blog"
         element={
           <Layout>
-            <PagePlaceholder title="وبلاگ" />
+            <Blog />
+            <Footer />
           </Layout>
         }
       />
@@ -82,7 +90,8 @@ function App() {
         path="/about"
         element={
           <Layout>
-            <PagePlaceholder title="درباره ما" />
+            <About />
+            <Footer />
           </Layout>
         }
       />

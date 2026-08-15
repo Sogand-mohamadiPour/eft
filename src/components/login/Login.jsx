@@ -45,14 +45,14 @@ function Login() {
   return (
     <div
       dir="rtl"
-      className={`${styles.BackGround} flex justify-center items-center h-screen lg:h-full px-2 w-full`}
+      className={`${styles.BackGround} flex justify-center items-center h-screen px-2 w-full`}
     >
       <div
-        className={`${styles.login} w-full sm:w-[80%] md:w-[70%] lg:w-[40%] bg-(--login-box) h-max rounded-3xl text-center`}
+        className={`${styles.login} w-full mt-10 sm:w-[80%] md:w-[70%] lg:w-[40%] bg-(--login-box) rounded-3xl text-center`}
       >
         <LoginLogo />
 
-        <p className="text-3xl mt-5">
+        <p className="text-3xl mt-2">
           سلام، <span className="text-[#F3B961]">خوش برگشتی!</span>
         </p>
 
@@ -71,7 +71,7 @@ function Login() {
 
         {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
 
-        <div className="flex justify-around mt-5">
+        <div className="flex justify-around mt-2">
           <div className="flex">
             <p className="text-sm pl-2">من رو به خاطر بسپار</p>
             <input type="checkbox" className="cursor-pointer w-5 h-5" />
@@ -88,12 +88,12 @@ function Login() {
         <button
           onClick={handleLogin}
           type="submit"
-          className={`${primaryButtonClass} w-[80%] mt-5`}
+          className={`${primaryButtonClass} w-[80%] mt-2`}
         >
           ورود به حساب
         </button>
 
-        <p className="mt-2">یا</p>
+        <p className="mt-1">یا</p>
 
         <button
           onClick={() => navigate("/Loginwithotp")}
@@ -102,7 +102,7 @@ function Login() {
           ورود با کد تایید
         </button>
 
-        <p className="text-sm mt-4 pb-6">
+        <p className="text-sm mt-2 pb-6">
           حساب کاربری ندارید؟{" "}
           <span
             className="text-[#cc7f0a] cursor-pointer"
